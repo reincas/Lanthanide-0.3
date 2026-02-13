@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ "$1" = "-a" ]
+then
+  LIB="lib/* src/* include/*"
+else
+  LIB=""
+fi
+
+emacs $LIB test/*.py test/Makefile \
+      MANIFEST.in Notice Makefile README INSTALL setup.py &

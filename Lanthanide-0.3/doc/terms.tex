@@ -1,0 +1,767 @@
+\documentclass[dvips,landscape,a4paper]{slides}
+%\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage{epsfig}
+\usepackage{amsmath}
+%\usepackage{amstex}
+\usepackage[german]{babel}
+
+\addtolength{\topmargin}{-30mm}
+\addtolength{\textheight}{45mm}
+%\setlength{\jot}{1cm}
+
+\def\einheit#1#2{\ensuremath{\mathrm{#1\,#2}}}
+\def\chem#1{\ensuremath{\mathrm{#1}}}
+\def\f#1{\chem{f}^{#1}}
+\def\o#1{\bar{#1}}
+\def\su{\rule{0ex}{2.3ex}}
+\def\sd{\rule[-1ex]{0ex}{1ex}}
+
+\def\iiij#1#2#3#4#5#6{%
+  \begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+\def\vij#1#2#3#4#5#6{%
+  \left\{\begin{matrix}#1&#2&#3\\#4&#5&#6\end{matrix}\right\}}
+
+\def\pic#1{
+  \begin{minipage}[t]{.30\textwidth}
+    \begin{center}
+%      #1
+    \end{center}
+  \end{minipage}
+  }
+\def\head#1{
+  \begin{center}
+    \bfseries #1\relax
+  \end{center}
+  }
+\def\source#1{
+  \begin{flushright}
+    \tiny #1\relax
+  \end{flushright}
+  }
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \begin{center}
+    \Large\bfseries
+    Energieniveaus von \\
+    dreifachionisierten Seltenerdionen
+  \end{center}
+  \vspace{3\baselineskip}
+  \begin{center}
+    Reinhard Caspary
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Gliederung}
+
+  \begin{quote}
+    \begin{itemize}
+    \item Motivation
+    \item Zentralfeldnäherung
+    \item Klassifizierung der Zustände
+    \item Konstruktion der Zustände
+    \item Wechselwirkungsoperatoren
+    \item Zusammenfassung
+    \end{itemize}
+  \end{quote}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Periodensystem der Elemente}
+
+  \begin{center}
+%    \epsfig{file=Periodensystem.eps, scale=0.5}
+    \input{Periodensystem.inc}
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Energieniveaus einiger Seltenerdionen}
+
+  \begin{center}
+    \epsfig{file=SE.eps, scale=1.0}
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Judd-Ofelt-Theorie}
+
+  \begin{displaymath}
+    S_{ed} = \frac{e^2}{4\pi\epsilon_0}\,
+    \sum_{\scriptscriptstyle k=2,4,6} \!\Omega_k\,
+    |\langle \f{N}\,\psi J||U^{(k)}||\f{N}\,\psi'J'\rangle|^2
+  \end{displaymath}
+
+  \vspace{\baselineskip}
+  \begin{tabbing}
+    $\langle b||U^{(k)}||a\rangle$:  \= \kill
+    $\Omega_k$: \> Judd-Ofelt-Parameter \\[.5\baselineskip]
+    $\langle b||U^{(k)}||a\rangle$:  \> Reduziertes
+    Matrixelement des \\
+    \> Einheitstensoroperators vom Rang $k$
+  \end{tabbing}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Energieeigenzustände der Seltenerdionen}
+
+  \begin{displaymath}
+    |\f{N}\,\psi J\rangle = 
+    \sum_{\scriptscriptstyle \alpha SL} C_{\alpha SL}
+    |\f{N}\,\alpha SLJ\rangle
+  \end{displaymath}
+
+  \vspace{\baselineskip}
+  Quantenzahlen:
+  \begin{quote}
+    \begin{tabbing}
+      $S$: \= Gesamtspin \\[.5\baselineskip]
+      $L$: \> Gesamtbahndrehimpuls \\[.5\baselineskip]
+      $J$: \> Gesamtdrehimpuls $\vec{J}=\vec{L}+\vec{S}$ \\[.5\baselineskip]
+      $\alpha$: \> zusätzlich nötige Quantenzahlen
+    \end{tabbing}
+  \end{quote}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Zentralfeldnäherung}
+
+  Hamiltonoperator für ein Ion mit der Kernladungszahl $Z$ und $N$
+  Elektronen in teilbesetzten Schalen:
+
+  \vspace{-.5\baselineskip}
+  \begin{displaymath}
+    H = -\sum_{i=1}^N\frac{p_i^2}{2m_e}
+    -\sum_{i=1}^N\frac{Ze^2}{r_i}
+    + \sum_{i<j}\frac{e^2}{r_{ij}}
+  \end{displaymath}
+  
+  Näherung: Jedes Elektron bewegt sich in einem Zentralpotential $U$,
+  das von der Coulombenergie des Kerns und der anderen Elektronen
+  herrührt:
+
+  \vspace{-\baselineskip}
+  \begin{displaymath}
+    H_0 = \sum_{i=1}^n \left[-\frac{p_i^2}{2m_e}+U(r_i)\right]
+  \end{displaymath}
+
+  $H_0$ ist damit eine Summe von Einzelelektronen-Operatoren.
+
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Eigenzustände von $\text{H}_\text{0}$}
+  
+  In der Lösung der Schrödingergleichung von $H_0$ für ein
+  Einzelelektron separieren Radial- und Winkelanteil wie beim
+  Wasserstoffatom:
+
+  \vspace{-.5\baselineskip}
+  \begin{displaymath}
+    \psi_{nlm_lm_s}(\vec{r}) = \frac1r
+    R_{nl}(r)Y^l_{m_l}(\theta,\phi)\chi_{m_s}
+  \end{displaymath}
+
+  Antisymetrische Lösung von $H_0$ für $N$ Elektronen:
+
+  \vspace{-.5\baselineskip}
+  \begin{displaymath}
+    \Psi_0 = \frac{\det[\psi_{(nlm_lm_s)_j}(\vec{r}_i)]}{\sqrt{N}}
+  \end{displaymath}
+  
+  Beispiel für $N=2$:
+
+  \vspace{-\baselineskip}
+  \begin{displaymath}
+    \Psi_0 = \frac{1}{\sqrt2}\big[\psi_1(\vec{r}_1)\psi_2(\vec{r}_2)
+    - \psi_1(\vec{r}_2)\psi_2(\vec{r}_1)\big]
+  \end{displaymath}
+
+  Alle Eigenzustände einer Konfiguration haben die gleiche Energie $E_0$.
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Störungsrechnung 1}
+  
+  Alle Wechselwirkungen, die nicht von $H_0$ erfaßt sind, werden im
+  Störungsoperator $H_S$ zusammen gefaßt, der die Energieaufspaltung
+  aufhebt:
+
+  \vspace{-1.5\baselineskip}
+  \begin{displaymath}
+    E = E_0 + \langle\Psi_0|H_S|\Psi'_0\rangle
+  \end{displaymath}
+
+  Problem 1:
+  \vspace{-1.5\baselineskip}
+  \begin{quote}
+    Der Winkelanteil von $\Psi_0$ ist zwar bekannt, die Radialanteile
+    $R_{nl}(r_i)$ hängen aber vom unbekannten Potential $U(r_i)$ ab.
+    Übliche Verfahren zur Berechnung von $U$, wie Hartree-Fock, haben
+    bei den Seltenerdionen keinen Erfolg gehabt.
+  \end{quote}
+ 
+  \vspace{-0.5\baselineskip}
+  Lösung:
+  \vspace{-1.5\baselineskip}
+  \begin{quote}
+    Die Radialintegrale $X^i$ des Störungsoperators werden als Parameter
+    aufgefaßt und an bekannte Energieaufspaltungen angepaßt:
+  \end{quote}
+
+  \vspace{-2.5\baselineskip}
+  \begin{displaymath}
+    E = E_0 + \sum_i x_i X^i
+  \end{displaymath}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Störungsrechnung 2}
+  
+  Problem 2:
+  \vspace{-1.5\baselineskip}
+  \begin{quote}
+    Mit den Determinantenzuständen ist zwar eine Lösung von $H_0$
+    bekannt, aber die Zustände sind völlig unstrukturiert. Daher sind
+    zur Berechnung von $x_i$ riesige Matrizen zu diagonalisieren und
+    den berechneten Eigenzuständen sind weitere Informationen kaum zu
+    entnehmen.
+  \end{quote}
+ 
+  \vspace{-0.5\baselineskip}
+  Lösung:
+  \vspace{-1.5\baselineskip}
+  \begin{quote}
+    Die möglichen Zustände der Konfiguration $\f{N}$ werden nach
+    $LSJ$ und dem Verhalten unter Symetrieoperationen klassifiziert.
+    Dies verkompliziert allerdings dafür die Konstruktion der
+    Zustände.
+  \end{quote}
+
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Symetrieeigenschaften von Orbitalen}
+
+  \hspace{\baselineskip}
+  \begin{center}
+  \pic{\epsfig{file=orbital-s.eps, scale=2.357}\\s-Orbital}
+  \pic{\epsfig{file=orbital-p.eps, scale=1.60}\\p-Orbital}
+  \pic{\epsfig{file=orbital-d.eps, scale=1.60}\\d-Orbital}
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Symetriegruppen}
+    
+  Die Zustände in der $\text{f}^\text{N}$-Konfiguration werden in
+  einer Kette irreduzibler Darstellungen von Symetriegruppen
+  klassifiziert. Die wichtigere der beiden gebräuchlichen Ketten ist:
+
+  \begin{quote}
+    \begin{description}
+    \item[$\text{U}_\text{7}$]
+      Unitäre Gruppe in 7~Dimensionen\\
+      irreduzible Darstellungen: $[\lambda_1\cdots\lambda_7]$\\
+      (enthalten auch den Gesamtspin $S$)
+    \item[$\text{R}_\text{7}\subset\text{U}_\text{7}$]
+      Rotationsgruppe in 7~Dimensionen\\
+      irreduzible Darstellungen: $(w_1w_2w_3)$
+    \item[$\text{G}_\text{2}\subset\text{R}_\text{7}$]
+      spezielle Gruppe in 2~Dimensionen\\
+      irreduzible Darstellungen: $(u_1u_2)$
+    \item[$\text{R}_\text{3}\subset\text{G}_\text{2}$]
+      Rotationsgruppe in 3~Dimensionen\\
+      irreduzible Darstellungen: Gesamtdrehimpuls $L$
+    \end{description}
+  \end{quote}
+  
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Projektion $\text{U}_\text{7} \to \text{R}_\text{7}$}
+
+  \vspace{.3\baselineskip}
+  \begin{center}
+    \tiny
+    \begin{tabular}[t]{|c|r|l|c|l|}
+      \hline
+      \multicolumn{1}{|c}{\su\sd Konfiguration} &
+      \multicolumn{1}{|c}{Dimension} &
+      \multicolumn{1}{|c}{[$\lambda_1 \lambda_2 \cdots]$} &
+      \multicolumn{1}{|c}{$2S+1$} &
+      \multicolumn{1}{|c|}{$(w_1 w_2 w_3)$} \\
+      \hline
+      \hline
+      \chem{f^0} &   1 & [0]       & 1 & (000)    \su\sd \\
+      
+      \chem{f^1} &   7 & [1]       & 2 & (100)    \su\sd \\
+      
+      \chem{f^2} &  21 & [11]      & 3 & (110)        \su \\
+      &  28 & [2]       & 1 & (000)(200)  \sd\\
+      
+      \chem{f^3} &  35 & [111]     & 4 & (111) \su\\
+      & 112 & [21]      & 2 & (100)(210) \sd\\
+      
+      \chem{f^4} &  35 & [1111]    & 5 & (111) \su\\
+      & 210 & [211]     & 3 & (110)(211) \\
+      & 196 & [22]      & 1 & (000)(200)(220) \sd\\
+      
+      \chem{f^5} &  21 & [11111]   & 6 & (110) \su\\
+      & 224 & [2111]    & 4 & (111)(211) \\
+      & 490 & [221]     & 2 & (100)(210)(221) \sd\\
+      
+      \chem{f^6} &   7 & [111111]  & 7 & (100) \su\\
+      & 140 & [21111]   & 5 & (111)(210) \\
+      & 588 & [2211]    & 3 & (110)(211)(221) \\
+      & 490 & [222]     & 1 & (000)(200)(220)(222) \sd\\
+      
+      \chem{f^7} &   1 & [1111111] & 8 & (000) \su\\
+      &  48 & [211111]  & 6 & (110)(200) \\
+      & 392 & [22111]   & 4 & (111)(211)(220) \\
+      & 784 & [2221]    & 2 & (100)(210)(221)(222) \sd\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \source{Quelle: Judd:1963a, table 5-1}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Projektion $\text{R}_\text{7} \to \text{G}_\text{2}$}
+
+  \vspace{.3\baselineskip}
+  \begin{center}
+    \tiny
+    \begin{tabular}[t]{|r|c|l|}
+      \hline
+      \multicolumn{1}{|c}{Dimension\su\sd} &
+      \multicolumn{1}{|c|}{$(w_1 w_2 w_3)$} &
+      \multicolumn{1}{|c|}{$(u_1 u_2)$} \\
+      \hline
+      \hline
+      1 & (000) & (00) \su\sd\\
+      7 & (100) & (10) \su\sd\\
+      21 & (110) & (10)(11) \su\sd\\
+      27 & (200) & (20) \su\sd\\
+      35 & (111) & (00)(10)(20) \su\sd\\
+      105 & (210) & (11)(20)(21) \su\sd\\
+      189 & (211) & (10)(11)(20)(21)(30) \su\sd\\
+      168 & (220) & (20)(21)(22) \su\sd\\
+      378 & (221) & (10)(11)(20)(21)(30)(31) \su\sd\\
+      294 & (222) & (00)(10)(20)(30)(40) \su\sd\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \source{Quelle: Judd:1963a, table 5-2}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Projektion $\text{G}_\text{2} \to \text{R}_\text{3}$}
+  
+  \vspace{.3\baselineskip}
+  \begin{center}
+    \tiny
+    \begin{tabular}[t]{|r|c|l|}
+      \hline
+      \multicolumn{1}{|c}{Dimension\su\sd} &
+      \multicolumn{1}{|c|}{$(u_1 u_2)$} &
+      \multicolumn{1}{|c|}{$L$} \\
+      \hline
+      \hline
+      1 & (00) & \chem{S} \su\sd\\
+      7 & (10) & \chem{F} \su\sd\\
+      14 & (11) & \chem{PH} \su\sd\\
+      27 & (20) & \chem{DGI} \su\sd\\
+      64 & (21) & \chem{DFGHKL} \su\sd\\
+      77 & (30) & \chem{PFGHIKM} \su\sd\\
+      77 & (22) & \chem{SDGHILN} \su\sd\\
+      189 & (31) & \chem{PDF^2GH^2I^2K^2LMNO} \su\sd\\
+      182 & (40) & \chem{SDFG^2HI^2KL^2MNQ} \su\sd\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \source{Quelle: Judd:1963a, table 5-3}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Projektion $\text{Sp}_\text{14} \to
+    \text{SU}_\text{2}\times\text{R}_\text{7}$}
+  \vspace{.3\baselineskip}
+  \begin{center}
+    \tiny
+    \begin{tabular}[t]{|r|c|c|l|}
+      \hline
+      \multicolumn{1}{|c}{Dimension\su\sd} &
+      \multicolumn{1}{|c|}{$v$} &
+      \multicolumn{1}{|c|}{$(\sigma_1\cdots\sigma_7)$} &
+      \multicolumn{1}{|c|}{$\relax^{2S+1}W$} \\
+      \hline
+      \hline
+      1 & 0 & (0000000) & $\relax^1(000)$ \su\sd\\
+      14 & 1 & (1000000) & $\relax^2(100)$ \su\sd\\
+      90 & 2 & (1100000) & $\relax^3(110)$ $\relax^1(200)$\su\sd\\
+      350 & 3 & (1110000) & $\relax^4(111)$ $\relax^2(210)$\su\sd\\
+      775 & 4 & (1111000) & $\relax^5(111)$ $\relax^3(211)$ $\relax^1(220)$\su\sd\\
+      1638 & 5 & (1111100) & $\relax^6(110)$ $\relax^4(211)$ $\relax^2(221)$\su\sd\\
+      2002 & 6 & (1111110) & $\relax^7(100)$ $\relax^5(210)$ $\relax^3(221)$
+      $\relax^1(222)$ \su\sd\\
+      1430 & 7 & (1111111) & $\relax^8(000)$ $\relax^6(200)$ $\relax^4(220)$
+      $\relax^2(222)$ \su\sd\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \source{Quelle: Judd:1963a, table 6-1}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Konstruktion der Zustände}
+  
+  Jeder Zustand $|\Omega\rangle$ der Konfiguration $\f{N}$ kann als
+  Linearkombination von Produktzuständen $|\o{\Omega}\rangle$ der
+  Konfiguration $\f{N-1}$ und dem Einelektronenzustand
+  $|\omega\rangle$ des $N$-ten Elektrons dargestellt werden:
+
+  \vspace{-0.5\baselineskip}
+  \begin{displaymath}
+    |\Omega\rangle = \sum_{\o{\Omega},\omega} 
+    \langle\o{\Omega};\omega|\Omega\rangle\,
+    |\o{\Omega}\rangle\,|\omega\rangle
+  \end{displaymath}
+  
+  Damit lassen sich die Matrixelemente von Einteilchen-Operatoren
+  \mbox{$\displaystyle F=\sum_if_i$} und Zweiteilchen-Operatoren
+  $\displaystyle G=\sum_{i<j}g_{ij}$ berechnen:
+
+  \vspace{-0.5\baselineskip}
+  \begin{align*}
+    \langle\Omega|F|\Omega'\rangle &= 
+    N \!\!\sum_{\o{\Omega},\o{\Omega}',\omega,\omega'}\!\!
+    \langle\Omega|\o{\Omega};\omega\rangle
+    \langle\o{\Omega}|\o{\Omega}'\rangle
+    \langle\omega|f_N|\omega'\rangle
+    \langle\o{\Omega}';\omega'|\Omega'\rangle        \\[.5\baselineskip]
+    \langle\Omega|G|\Omega'\rangle &= 
+    \frac{N}{N-2} \sum_{\o{\Omega},\o{\Omega}',\omega}
+    \langle\Omega|\o{\Omega};\omega\rangle
+    \langle\o{\Omega}|\o{G}|\o{\Omega}'\rangle
+    \langle\o{\Omega}';\omega|\Omega'\rangle
+  \end{align*}
+
+  Alle anderen Operatoren lassen sich auf diese zwei Fälle
+  zurückführen.
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Fractional-Parentage-Koeffizienten}
+
+  Setzt man $\Omega=\f{N}WU\tau SM_SLM_L$ und $\omega=\f{}m_sm_l$ ein, dann
+  ergibt sich:
+
+  \vspace{-\baselineskip}
+  \begin{align*}
+    %\langle\f{N-1}\o{W}\o{U}\o{\tau}\o{S}\o{M}_S\o{L}\o{M}_L;
+    %(100)(10)\f{}m_sm_l|
+    %\f{N}WU\tau SM_SLM_L\rangle = \\
+    \qquad
+    \langle\o{\Omega};\omega|\Omega\rangle = 
+    \langle\o{S}\o{M}_Ssm_s|&\o{S}sSM_S\rangle
+    \langle\o{L}\o{M}_L\f{}m_l|\o{L}\f{}LM_L\rangle \\[.3\baselineskip]
+    &\times\langle\f{N-1}\o{W}\o{U}\o{\tau}\o{S}\o{L}|\}\f{N}WU\tau SL\rangle
+    \qquad
+  \end{align*}
+
+  Der letzte Faktor heißt Fractional-Parentage-Koeffizient und kann
+  wiederum in ein Produkt zerlegt werden:
+
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \langle\f{N-1}\o{W}\o{U}\o{\tau}\o{S}\o{L}&|\}
+    \f{N}WU\tau SL\rangle = \\[.3\baselineskip]
+    & \langle \o{U}\o{\tau}\o{L}+\f{}|U\tau L\rangle
+    \langle \o{W}\o{U}+\f{}|WU\rangle
+    \langle \f{N-1}\o{v}\o{S}+\f{}|\}\f{N}vS\rangle
+  \end{align*}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Coulombwechselwirkung zwischen den Elektronen}
+
+  Der erste Term der Störungsrechnung ist der Rest von $H$, der bei
+  der Zentralfeldnäherung übrig blieb:
+
+  \vspace{-.5\baselineskip}
+  \begin{displaymath}
+    H-H_0 = \sum_{i=1}^{N}\left[-\frac{Ze^2}{r_i}-U(r_i)\right]
+    + \sum_{i<j}\frac{e^2}{r_{ij}}
+  \end{displaymath}
+  
+  Für alle Zustände innerhalb einer Konfiguration ergibt die erste
+  Summe die gleiche Verschiebung.  Von Interesse ist hier also nur die
+  Coulombwechselwirkung zwischen den Elektronen:
+
+  \vspace{-.5\baselineskip}
+  \begin{displaymath}
+    H_1 = \sum_{i<j}\frac{e^2}{r_{ij}}
+  \end{displaymath}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Die Matrixelemente von $\text{H}_\text{1}$}
+
+  \vspace{-1.5\baselineskip}
+  \begin{multline*}
+    \langle l^N\alpha SL|H_1| l^N\alpha' SL\rangle = 
+    \frac12 \sum_{\scriptscriptstyle k \text{\ gerade}}
+    \langle l||C^{(k)}||l\rangle^2
+    \\[.3\baselineskip]\times
+    \bigg[F^k
+    \sum_{\alpha''S''L''}\frac{(-1)^{L+L''}}{2L+1} 
+    \langle l^N\alpha SL||U^{(k)}|| l^N\alpha'' S''L''\rangle
+    \\\times
+    \langle l^N\alpha'' S''L''||U^{(k)}|| l^N\alpha'SL\rangle
+    - \delta(\alpha,\alpha')\frac{N}{2l+1} \bigg]
+  \end{multline*}
+
+  \vspace{-1.5\baselineskip}
+  \begin{multline*}
+    \langle l^N\alpha SL||U^{(k)}|| l^N\alpha' S'L'\rangle = 
+    N\,\delta(S,S')\sqrt{(2L+1)(2L'+1)}
+    \\[.3\baselineskip]\times
+    \sum_{\o{\alpha}\o{S}\o{L}}
+    (-1)^{\o{L}+l+L+k}
+    \langle l^N \alpha SL\{|l^{N-1}\o{\alpha}\o{S}\o{L}\rangle
+    \\[-.6\baselineskip]\times
+    \langle l^{N-1}\o{\alpha}\o{S}\o{L}|\}l^N \alpha' S'L'\rangle
+    \vij{L}{k}{L'}{l}{\o{L}}{l}
+  \end{multline*}
+
+  \vspace{-1.5\baselineskip}
+  \begin{displaymath}
+    \langle l||C^{(k)}||l'\rangle = (-1)^l \sqrt{(2l+1)(2l'+1)}
+    \iiij{l}{k}{l'}000
+  \end{displaymath}
+
+  \source{Quelle: Goldschmidt:1978, (1.74), (1.73), (1.50)}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Spin-Bahn-Wechselwirkung}
+
+  Unter den relativistischen Korrekturtermen ist die
+  Spin"=Bahn"=Wechselwirkung die wichtigste:
+
+  \vspace{-\baselineskip}
+  \begin{displaymath}
+    H_2 = \sum_{i=1}^N \xi_{n_il_i}\,(l_i\cdot s_i)
+  \end{displaymath}
+
+  Da die Energieverschiebung von $H_2$ in der Größenordnung von $H_1$
+  liegt, müssen beide immer gemeinsam diagonalisiert werden.
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Die Matrixelemente von $\text{H}_\text{2}$}
+
+  \vspace{-1.5\baselineskip}
+  \begin{multline*}
+    \langle l^N\alpha SLJM|H_2| l^N\alpha' S'L'JM\rangle = 
+    \zeta_{nl}\,
+    (-1)^{S'+L+J}
+    \\[.3\baselineskip]\times
+    \sqrt{\frac32 l(l+1)(2l+1)}\,
+    \langle l^N\alpha SL||V^{(11)}|| l^N\alpha' S'L'\rangle
+    \vij{S}{S'}{1}{L'}{L}{J}
+  \end{multline*}
+
+  \vspace{-1.5\baselineskip}
+  \begin{multline*}
+    \langle l^N\alpha SL||V^{(11)}|| l^N\alpha' S'L'\rangle =
+    N\,
+    (-1)^{\frac12+l+S+L}
+    \\[.3\baselineskip]\times
+    \sqrt{(2S+1)(2S'+1)(2L+1)(2L'+1)}
+    \\[.3\baselineskip]\times
+    \sum_{\o{\alpha}\o{S}\o{L}}
+    (-1)^{\o{S}+\o{L}}
+    \langle l^N \alpha SL\{|l^{N-1}\o{\alpha}\o{S}\o{L}\rangle
+    \langle l^{N-1}\o{\alpha}\o{S}\o{L}|\}l^N \alpha' S'L'\rangle
+    \\[.3\baselineskip]\times
+    \vij{S}{1}{S'}{\frac12}{\o{S}}{\frac12}
+    \vij{L}{1}{L'}{l}{\o{L}}{l}
+  \end{multline*}
+
+  \source{Quelle: Goldschmidt:1978, (1.101), (1.103)}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Wechselwirkungen höherer Ordnung}
+  
+  Wechselwirkungen höherer Ordnung, die aufgrund anderer
+  Symetrieeigenschaften noch nicht in den Parametern $F^k$ und
+  $\zeta_{nl}$ enthalten sind:
+
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \begin{itemize}
+    \item 2- und 3-Elektronen-Wechselwirkung mit allen anderen
+      Konfigurationen:\\
+      \hspace*{2em}$\displaystyle
+      \langle|H_3|\rangle = 
+      \alpha L(L+1) + \beta G(G_2) + \gamma G(R_7)$
+      \\[.3\baselineskip]
+      \hspace*{2em}$\displaystyle
+      \langle|H_4|\rangle = 
+      \sum_{\scriptscriptstyle\stackrel{i=2,3,4}{\phantom{i=}6,7,8}}
+      t_i T^i$
+    \item Spin-Spin- und Spin-Bahn-Wechselwirkung zwischen
+      verschiedenen Elektronen:\\
+      \hspace*{2em}$\displaystyle
+      \langle|H_5|\rangle = 
+      \sum_{\scriptscriptstyle k=0,2,4}m_k M^k$
+    \item Spin-Bahn-Wechselwirkung eines Elektrons in höherer
+      Ordnung:\\
+      \hspace*{2em}$\displaystyle
+      \langle|H_6|\rangle = 
+      \sum_{\scriptscriptstyle k=2,4,6}p_k P^k$
+    \end{itemize}
+  \end{quote}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Zusammenfassung}
+  
+  Vorarbeiten
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \begin{itemize}
+      \setlength{\itemsep}{0\baselineskip}
+    \item Klassifizierung der Zustände
+    \item Berechnung der Fractional-Parentage-Koeffizienten
+    \item Berechnung der Matrizen~$x_i$ für alle Wechselwirkungen
+    \end{itemize}
+  \end{quote}
+
+  Fitprozedur
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \begin{itemize}
+      \setlength{\itemsep}{0\baselineskip}
+    \item Diagonalisierung der Störungsmatrix~$\sum_ix_iX^i$
+    \item Anpassung der Parameter~$X^i$ an gemessene Energieniveaus
+    \end{itemize}
+  \end{quote}
+
+  \vspace{-1.5\baselineskip}
+  \begin{displaymath}
+    E = E_0 + \sum_i x_i X^i
+  \end{displaymath}
+  \vspace{-\baselineskip}
+
+  Ergebnis:
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \begin{itemize}
+      \setlength{\itemsep}{0\baselineskip}
+    \item Alle Energieniveaus des Seltenerdions im Wirtsmaterial
+    \item Winkelanteil der Zustände zur Berechnung anderer Größen
+    \end{itemize}
+  \end{quote}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{3-j-Symbol}
+  
+  \begin{multline*}
+    \begin{pmatrix} j1&j2&j3\\m1&m2&m3 \end{pmatrix} \,=\,
+    \delta(m1+m2+m3)\,(-1)^{j1-j2-m3} \\[1em]
+    \times\sqrt{\frac{
+        \begin{aligned}
+          (j1+j2-j3)! (j1-j2+j3)! (-j1+j2+j3)! (j1-m1)! \qquad \\
+          (j1+m1)! (j2-m2)! (j2+m2)! (j3-m3)!(j3+m3)!
+        \end{aligned}}{(j1+j2+j3+1)!}} \\[1em]
+    \times\sum_k \frac{(-1)^k}{
+      \left(\begin{aligned}
+          k! (j1+j2-j3-k)! (j1-m1-k)! (j2+m2-k)! \qquad \\
+          (j3-j2+m1+k)! (j3-j1-m2+k)!
+        \end{aligned}\right)}
+  \end{multline*}
+  \source{Quelle: Fritzsche:1997}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\begin{slide}
+  \head{Clebsch-Gordan-Koeffizient}
+
+  \begin{displaymath}
+    \langle j_1 m_1 j_2 m_2 | j_1 j_2 j m \rangle
+    \,=\, (-1)^{-j_1+j_2-m} \sqrt{2j+1}
+    \begin{pmatrix} j1&j2&j\\m1&m2&-m \end{pmatrix}
+  \end{displaymath}
+  \source{Quelle: Fritzsche:1997}
+
+  Der Clebsch-Gordan-Koeffizient koppelt die Eigenzustände von zwei
+  separaten Drehimpulsen zu einem Eigenzustand des Gesamtdrehimpulses:
+
+  \begin{displaymath}
+    |j_1j_2jm\rangle \,=\, \sum_{m_1,m_2}
+    \langle j_1m_1j_2m_2 | j_1j_2jm\rangle \,|j_1m_1j_2m_2\rangle
+  \end{displaymath}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

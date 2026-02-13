@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DST=~test/tmp
+
+cd ~/src/Lanthanide
+make sdist
+cp dist/Lanthanide-*.tar.gz $DST

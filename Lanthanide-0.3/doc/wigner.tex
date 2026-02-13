@@ -1,0 +1,378 @@
+\documentclass[dvips,landscape,a4paper]{slides}
+%\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage{epsfig}
+\usepackage{amsmath}
+%\usepackage{amstex}
+\usepackage[german]{babel}
+
+\addtolength{\topmargin}{-30mm}
+\addtolength{\textheight}{45mm}
+
+\def\einheit#1#2{\ensuremath{\mathrm{#1\,#2}}}
+\def\chem#1{\ensuremath{\mathrm{#1}}}
+
+\def\shalf{{\scriptstyle\frac12}}
+\def\skalf{{\scriptstyle\frac{k}{2}}}
+
+\def\vector#1{\vec{#1}}
+\def\tensor#1#2{\hat{#1}^{(#2)}}
+\def\scalartensor#1{\hat{#1}}
+\def\element#1#2#3{#1_{#2}^{(#3)}}
+
+\def\textvector#1{\vec{\text{#1}}}
+\def\texttensor#1#2{\hat{\text{#1}}^{\text{(#2)}}}
+\def\textscalartensor#1{\hat{\text{#1}}}
+\def\textelement#1#2#3{\text{#1}_{\text{#2}}^{\text{(#3)}}}
+
+\def\dot#1#2{({#1} \cdot {#2})}
+\def\bigdot#1#2{\big({#1} \cdot {#2}\big)}
+\def\cross#1#2#3{\{{#1} \!\times {#2}\}^{(#3)}}
+\def\bigcross#1#2#3{\big\{{#1} \!\times {#2}\big\}^{(#3)}}
+\def\elcross#1#2#3#4{\{{#1} \!\times {#2}\}_{#3}^{(#4)}}
+\def\bigelcross#1#2#3#4{\big\{{#1} \!\times {#2}\big\}_{#3}^{(#4)}}
+
+\def\la{l_a}\def\mla{m_{l_a}}\def\msa{m_{s_a}}
+\def\lb{l_b}\def\mlb{m_{l_b}}\def\msb{m_{s_b}}
+\def\lc{l_c}\def\mlc{m_{l_c}}\def\msc{m_{s_c}}
+\def\ld{l_d}\def\mld{m_{l_d}}\def\msd{m_{s_d}}
+
+\def\iiij#1#2#3#4#5#6{%
+  \begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+\def\vij#1#2#3#4#5#6{%
+  \left\{\begin{matrix}#1&#2&#3\\#4&#5&#6\end{matrix}\right\}}
+
+\def\head#1{
+  \begin{center}
+    {\bfseries #1}\par
+  \end{center}
+  }
+
+\def\source#1{
+  \begin{flushright}
+    \tiny #1\relax
+  \end{flushright}
+  }
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \begin{center}
+    \Large\bfseries
+    Wigner 3-j and 6-j symbols
+  \end{center}
+  \vspace{3\baselineskip}
+  \begin{center}
+    Reinhard Caspary
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Recoupling of angular momenta}
+  
+  Clebsch-Gordan coefficient:
+  \begin{displaymath}
+    \langle j_1, m_1, j_2, m_2 \,|\, j_1, j_2, j, m \rangle
+    = (-1)^{j_1-j_2+m} \sqrt{2j+1}
+    \iiij{j_1}{j_2}{j}{m_1}{m_2}{-m}
+  \end{displaymath}
+
+  \vspace{\baselineskip}
+  Recoupling coefficient for three angular momenta:
+  \begin{multline*}
+    \langle(j_1j_2)j_{12},j_3,j\,|\,j_1,(j_2j_3)j_{23},j\rangle =
+    \\[.333\baselineskip]
+    \sqrt{(2j_{12}+1)(2j_{23}+1)}\,
+    (-1)^{j_1+j_2+j_3+j}\,
+   \vij{j_3}{j}{j_{12}}{j_1}{j_2}{j_{23}}
+  \end{multline*}
+  \source{Judd 1963: (3-4)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 3-j symbol: Definition}
+  
+  \begin{multline*}
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3} =
+    \delta(m_1+m_2+m_3)\,(-1)^{j_1-j_2-m_3}
+    \\[0.333\baselineskip]
+    \times
+    \sqrt{\frac{
+        \begin{aligned}
+          (j_1+j_2-j_3)! (j_1-j_2+j_3)! (-j_1+j_2+j_3)! (j_1-m_1)! \qquad \\
+          (j_1+m_1)! (j_2-m_2)! (j_2+m_2)! (j_3-m_3)!(j_3+m_3)!
+        \end{aligned}}{(j_1+j_2+j_3+1)!}}
+    \\[0.333\baselineskip]
+    \times
+    \sum_k \frac{(-1)^k}{
+      \left(\begin{aligned}
+          k! (j_1+j_2-j_3-k)! (j_1-m_1-k)! (j_2+m_2-k)! \qquad \\
+          (j_3-j_2+m_1+k)! (j_3-j_1-m_2+k)!
+        \end{aligned}\right)}
+  \end{multline*}
+  \source{(Fritzsche 1997)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 3-j symbol: Symmetry properties}
+  
+  Even permutations of columns do not change the value:
+  \begin{displaymath}
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3} = 
+    \iiij{j_2}{j_3}{j_1}{m_2}{m_3}{m_1} = 
+    \iiij{j_3}{j_1}{j_2}{m_3}{m_1}{m_2}
+  \end{displaymath}
+
+  Odd permutations of columns introduce a phase factor:
+  \begin{displaymath}
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3} = 
+    (-1)^{j_1+j_2+j_3}
+    \iiij{j_2}{j_1}{j_3}{m_2}{m_1}{m_3}
+  \end{displaymath}
+
+  Multiplying the bottom line by $-1$ introduces the same phase factor:
+  \begin{displaymath}
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3} = 
+    (-1)^{j_1+j_2+j_3}
+    \iiij{j_1}{j_2}{j_3}{-m_1}{-m_2}{-m_3}
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 3-j symbol: Special values I}
+  
+  If $J=j_1+j_2+j_3$ is even, than
+  \begin{multline*}
+    \iiij{j_1}{j_2}{j_3}{0}{0}{0} =
+    (-1)^{\shalf J}
+    \sqrt{\frac{(J-2j_1)!(J-2j_2)!(J-2j_3)!}{(J+1)!}}
+    \\[0.333\baselineskip]
+    \times
+    \frac{(\shalf J)!}{
+      (\shalf J-j_1)!(\shalf J-j_2)!(\shalf J-j_3)!}
+  \end{multline*}
+  \source{(Judd 1963: (4-3))}
+  \vspace{-\baselineskip}
+  If J is odd, the value of the above 3-j symbol is zero.
+
+  \begin{displaymath}
+    \iiij{l}{k}{l}{0}{0}{0} =
+    (-1)^{l+\skalf}\,
+    \sqrt{\frac{(2l-k)!}{(2l+k+1)!}}\ 
+    \frac{k!(l+\skalf)!}{(\skalf!)^2(l-\skalf)!}
+  \end{displaymath}
+
+  \begin{displaymath}
+    \iiij{j}{j'}{0}{m}{-m}{0} =
+    \iiij{j'}{0}{j}{-m}{0}{m} =
+    \delta(j,j')\,
+    \frac{(-1)^{j-m}}{\sqrt{2j+1}}
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 3-j symbol: Special values II}
+  
+  \begin{align*}
+    \iiij{0}{k}{k}{0}{0}{0} &=
+    \frac{(-1)^k}{\sqrt{2k+1}}
+    \\[\baselineskip]
+    \iiij{1}{k}{k-1}{0}{0}{0} &=
+    (-1)^k\,
+    \sqrt{\frac{k}{(2k+1)(2k-1)}}
+    \\[\baselineskip]
+    \iiij{1}{k}{k}{0}{0}{0} &= 0
+    \\[\baselineskip]
+    \iiij{1}{k}{k+1}{0}{0}{0} &=
+    (-1)^{k+1}\,
+    \sqrt{\frac{k+1}{(2k+3)(2k+1)}}
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 3-j symbol: Reduction of two 3-j symbols}
+  
+  \begin{displaymath}
+    \sum_{j_3, m_3}
+    (2j_3+1)
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3}
+    \iiij{j_1}{j_2}{j_3}{m'_1}{m'_2}{m_3} =
+    \delta(m_1,m'_1)\,
+    \delta(m_2,m'_2)
+  \end{displaymath}
+  \source{Judd 1963: (1-23)}
+
+  \begin{displaymath}
+    \sum_{m_1, m_2}
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3}
+    \iiij{j_1}{j_2}{j'_3}{m_1}{m_2}{m'_3} =
+    \frac{\delta(j_3,j'_3)\,\delta(m_3,m'_3)}{(2j_3+1)}
+  \end{displaymath}
+  \source{Judd 1963: (1-24)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 6-j symbol: Definition}
+  
+  \begin{multline*}
+    \vij{j_1}{j_2}{j_3}{l_1}{l_2}{l_3} =
+    \Delta(j_1 j_2 j_3)\,
+    \Delta(j_1 l_2 l_3)\,
+    \Delta(l_1 j_2 l_3)\,
+    \Delta(l_1 l_2 j_3)
+    \\[.333\baselineskip]
+    \times
+    \sum_z
+    \frac{(-1)^z\, (z+1)!}{
+      \left[\begin{aligned}
+        (z-j_1-j_2-j_3)!
+        (z-j_1-l_2-l_3)!
+        (z-l_1-j_2-l_3)!
+        \\\times
+        (z-l_1-l_2-j_3)!
+        (j_1+j_2+l_1+l_2-z)!
+        \qquad\quad\\\times
+        (j_2+j_3+l_2+l_3-z)!
+        (j_3+j_1+l_3+l_1-z)!
+      \end{aligned}\right]
+      }
+  \end{multline*}
+
+  \begin{displaymath}
+    \Delta(abc) =
+    \sqrt{\frac{(a+b-c)! (a-b+c)! (-a+b+c)!}{(a+b+c+1)!}}
+  \end{displaymath}
+  \source{Judd 1963: (3-7)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 6-j symbol: Symmetry properties}
+
+  Permutations of columns do not change the value:
+  \begin{displaymath}
+    \vij{j_1}{j_2}{j_3}{l_1}{l_2}{l_3} =
+    \vij{j_2}{j_1}{j_3}{l_2}{l_1}{l_3}
+  \end{displaymath}
+  \source{Judd 1963: (3-8)}
+
+  Exchange of upper and lower argument in each of any pair of columns
+  does not change the value:
+  \begin{displaymath}
+    \vij{j_1}{j_2}{j_3}{l_1}{l_2}{l_3} =
+    \vij{l_1}{l_2}{j_3}{j_1}{j_2}{l_3}
+  \end{displaymath}
+  \source{Judd 1963: (3-9)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Wigner 6-j symbol: Special values}
+  
+  \begin{align*}
+    \vij{0}{k}{k}{l}{l}{l} &=
+    \frac{(-1)^{2l+k}}{\sqrt{(2k+1)(2l+1)}}
+    \\[\baselineskip]
+    \vij{1}{k}{k-1}{l}{l}{l} &=
+    \frac{(-1)^{2l+k}}{2}\,
+    \sqrt{\frac{(2l+k+1) (2l-k+1) k}{l (l+1) (2l+1) (2k-1) (2k+1)}}
+    \\[\baselineskip]
+    \vij{1}{k}{k}{l}{l}{l} &=
+    \frac{(-1)^{2l+k+1}}{2}\,
+    \sqrt{\frac{k (k+1)}{l (l+1) (2l+1) (2k+1)}}
+    \\[\baselineskip]
+    \vij{1}{k}{k+1}{l}{l}{l} &=
+    \frac{(-1)^{2l+k+1}}{2}\,
+    \sqrt{\frac{(2l+k+2) (2l-k) (k+1)}{l (l+1) (2l+1) (2k+1) (2k+3)}}
+  \end{align*}
+  \source{Judd 1963: (3-10)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+  \vspace*{\fill}
+  \head{Conversion equations}
+  
+  \vspace{-0.5\baselineskip}
+  \begin{multline*}
+    \vij{j_1}{j_2}{j_3}{l_1}{l_2}{l_3}
+    \iiij{j_1}{j_2}{j_3}{m_1}{m_2}{m_3} =
+    \sum_{\mu_1, \mu_2, \mu_3}
+    (-1)^{l_1+l_2+l_3+\mu_1+\mu_2+\mu_3}
+    \\[.5\baselineskip]
+    \times
+    \iiij{j_1}{l_2}{l_3}{m_1}{\mu_2}{-\mu_3}
+    \iiij{l_1}{j_2}{l_3}{-\mu_1}{m_2}{\mu_3}
+    \iiij{l_1}{l_2}{j_3}{\mu_1}{-\mu_2}{m_3}
+  \end{multline*}
+  \source{Judd 1963: (3-6)}
+
+  \vspace{-0.5\baselineskip}
+  \begin{multline*}
+    \sum_{m_2}
+    (-1)^{m_2}
+    \iiij{l}{k_1}{l}{-m_3}{q_1}{m_2}
+    \iiij{l}{k_2}{l}{-m_2}{q_2}{m_1} =
+    \\[.333\baselineskip]
+    \sum_{k_3,q_3}
+    (-1)^{l+k_1+k_2+k_3-q_3}
+    (2k_3+1)
+    \\[0\baselineskip]
+    \times
+    \vij{k_1}{k_2}{k_3}{l}{l}{l}
+    \iiij{l}{k_3}{l}{-m_3}{q_3}{m_1}
+    \iiij{k_1}{k_2}{k_3}{q_1}{q_2}{-q_3}
+  \end{multline*}
+  \source{Judd 1963: (5-14)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+function single()
+{
+    LOG="log/$1-$2.log"
+    date > $LOG
+    python prepare.py -i $1 -t $2 >> $LOG 2>&1
+    date >> $LOG
+}
+
+function all()
+{
+    single $1 term
+    single $1 matrix
+    single $1 energy
+    single $1 crystal
+}
+
+mkdir -p log
+for c in f01 f13 f02 f12 f03 f11 f04 f10 f05 f09 f06 f08 f07
+do
+  echo "Configuration $c:"
+  echo "start: "`date`
+  all $c
+  echo "end:   "`date`
+done

@@ -1,0 +1,34 @@
+(c) 01/2001 by Reinhard Caspary
+
+#########################################################################
+WARNING:
+  This is *alpha* software. There may be many errors and it may not
+  even compile properly. The present version must not be distributed!
+#########################################################################
+
+
+For compiling and using Lanthanide some libraries are needed:
+
+- liblapack.a
+- libblas.a
+- libF77.a
+
+They may be taken from the clapack package and must be reachable by
+the compiler (e.g. in $HOME/lib).
+
+Furthermore Python together with two packages is needed. I use the
+following versions:
+
+- Python 1.5.2
+- Distutils 1.0.1
+- Numerical 14 
+
+From the Python package Numerical the header file arrayobject.h must
+be reachable by the compiler (e.g. in $HOME/include).
+
+To use the Python package Lanthanide, it must be compiled and
+installed first. The command 'make install' installs the package to
+$HOME/lib/python/Lanthanide. This path must be given in the
+environment variable PYTHONPATH, so that Python finds the files:
+
+  export PYTHONPATH=$HOME/lib/python/Lanthanide

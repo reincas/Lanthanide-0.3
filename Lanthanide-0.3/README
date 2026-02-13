@@ -1,0 +1,102 @@
+# Copyright 2000,2003 Reinhard Caspary <r.caspary@tu-bs.de>
+#
+# This file is part of the Python package Lanthanide.
+# 
+# Lanthanide is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+# 
+# Lanthanide is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Lanthanide; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+Acknowledgements:
+-----------------
+	
+The basic ideas of this package are taken from the program ADMZ from
+Sverker Edvardsson & Daniel Aberg, developed in July 1998 and
+published in Comp. Phys. Commun. 133(2001)396, but Lanthanide does not
+contain any code from ADMZ.
+
+
+
+Preconditions:
+--------------
+
+This package was developed on a Linux system and should work at least
+with the following program and package versions:
+
+  Python 2.2              (http://www.python.org)
+  Numeric 21.3            (http://www.numpy.org)
+
+The matrix operations use the standard LAPACK library. To compile the
+external Python modules (C libraries) of Lanthanide, you need two
+libraries:
+
+  liblapack.so.3          (http://www.netlib.org/lapack)
+  libblas.so.3            (http://www.netlib.org/blas)
+
+On my system liblapack and libblas were compiled with g77, therfore I
+also need the following library:
+
+  libg2c.so.0
+
+If you use liblapack and libblas not compiled with g77, you will have
+to modify setup.py accordingly.
+
+However, Lanthanide may also work with older or more recent versions
+of the above packages and libraries
+
+
+
+Some installation instructions:
+-------------------------------
+
+Install this package by
+
+>  python setup.py install
+
+This will copy all necessary files to the directory
+
+  $HOME/lib/python/Lanthanide
+
+To use these files add this directory to the environment
+variable PYTHONPATH.
+
+
+
+Test the installation:
+----------------------
+
+Run
+
+>  cd test
+>  python test.py
+
+This runs an energy level fit in three stages with an increasing
+number of fit parameters. The results are stored in the directory
+./energy/Pr. In this directory the files *.parm contain the values of
+the fit parameters and the files *.fit contain six ASCII tables:
+
+  - start and end values of fit parameters
+  - comparison of measured and calculated energy levels
+  - matrix linking SLJ and intermediate coupling scheme
+  - Judd-Ofelt parameters
+  - comparison of measured and calculated oscillator strengths
+  - some important quantities for the absorption transitions
+
+If you also installed the package Spectrum, then run
+
+>  python test-all.py
+
+which gives the same results, but starts from scatch with the
+absorption spectra and uses the results from the evaluation of these
+spectra for the tables of measured energy levels and oscillator
+strengths.

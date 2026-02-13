@@ -1,0 +1,752 @@
+\documentclass[dvips,landscape,a4paper]{slides}
+%\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage{epsfig}
+\usepackage{amsmath}
+%\usepackage{amstex}
+\usepackage[german]{babel}
+
+\addtolength{\topmargin}{-30mm}
+\addtolength{\textheight}{45mm}
+
+\def\einheit#1#2{\ensuremath{\mathrm{#1\,#2}}}
+\def\chem#1{\ensuremath{\mathrm{#1}}}
+
+\def\shalf{{\scriptstyle\frac12}}
+\def\skalf{{\scriptstyle\frac{k}{2}}}
+
+\def\vector#1{\vec{#1}}
+\def\tensor#1#2{\hat{#1}^{(#2)}}
+\def\scalartensor#1{\hat{#1}}
+\def\element#1#2#3{#1_{#2}^{(#3)}}
+
+\def\textvector#1{\vec{\text{#1}}}
+\def\texttensor#1#2{\hat{\text{#1}}^{\text{(#2)}}}
+\def\textscalartensor#1{\hat{\text{#1}}}
+\def\textelement#1#2#3{\text{#1}_{\text{#2}}^{\text{(#3)}}}
+
+\def\dot#1#2{({#1} \cdot {#2})}
+\def\threedot#1#2#3{({#1} \cdot {#2} \cdot {#3})}
+\def\bigdot#1#2{\big({#1} \cdot {#2}\big)}
+\def\cross#1#2#3{\{{#1} \!\times {#2}\}^{(#3)}}
+\def\crosstop#1#2#3#4{\{{#1} \!\times {#2}\}^{(#3){#4}}}
+\def\bigcross#1#2#3{\big\{{#1} \!\times {#2}\big\}^{(#3)}}
+\def\elcross#1#2#3#4{\{{#1} \!\times {#2}\}_{#3}^{(#4)}}
+\def\bigelcross#1#2#3#4{\big\{{#1} \!\times {#2}\big\}_{#3}^{(#4)}}
+
+\def\la{l_a}\def\mla{m_{l_a}}\def\msa{m_{s_a}}
+\def\lb{l_b}\def\mlb{m_{l_b}}\def\msb{m_{s_b}}
+\def\lc{l_c}\def\mlc{m_{l_c}}\def\msc{m_{s_c}}
+\def\ld{l_d}\def\mld{m_{l_d}}\def\msd{m_{s_d}}
+
+\def\iiij#1#2#3#4#5#6{%
+  \begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+\def\vij#1#2#3#4#5#6{%
+  \left\{\begin{matrix}#1&#2&#3\\#4&#5&#6\end{matrix}\right\}}
+
+\def\head#1{
+  \begin{center}
+    {\bfseries #1}\par
+  \end{center}
+  }
+
+\def\source#1{
+  \begin{flushright}
+    \tiny #1\relax
+  \end{flushright}
+  }
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \begin{center}
+    \Large\bfseries
+    Tensor Operators \\
+    for Determinantal Product States \\
+    of $\text{l}^\text{N}$ Configurations
+  \end{center}
+  \vspace{3\baselineskip}
+  \begin{center}
+    Reinhard Caspary
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Tensor operators}
+
+  Definition:
+  \begin{eqnarray*}
+    \displaystyle
+    [J_z, \element{T}{q}{k}] &=& q\, \element{T}{q}{k}
+    \\[.333\baselineskip]
+    \displaystyle
+    [J_\pm, \element{T}{q}{k}] &=& \sqrt{k(k+1)-q(q\pm1)}\,
+    \element{T}{q\pm1}{k}
+  \end{eqnarray*}
+
+  \vspace{\baselineskip}
+  Wigner-Eckart theorem:
+  \begin{displaymath}
+    \langle j' m' | \element{T}{q}{k} | j m \rangle
+    = (-1)^{j'-m'}
+    \iiij{j'}{k}{j}{-m'}{q}{m}
+    \langle j' || \tensor{T}{k} || j \rangle
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Mixed tensor operators}
+
+  \begin{displaymath}
+    \tensor{Q}{k} =
+    \cross{\tensor{T}{k_1}}{\tensor{U}{k_2}}{k}
+  \end{displaymath}
+  \vspace{0.2\baselineskip}
+  \begin{displaymath}
+    Q_q^{(k)} = \sum_{q_1,q_2} T_{q_1}^{(k_1)} U_{q_2}^{(k_2)}\,
+    \langle k_1, q_1, k_2, q_2 \,|\, k_1, k_2, k, q \rangle
+  \end{displaymath}
+  \begin{multline*}
+    \langle l' || \element{Q}{q}{k} || l \rangle =
+    (-1)^{l'+k+l}\,
+    \sqrt{2k+1}
+    \\
+    \times
+    \sum_{l''}
+    \vij{k_1}{k}{k_2}{l}{l''}{l'}\,
+    \langle l' || \tensor{T}{k_1} || l'' \rangle\,
+    \langle l'' || \tensor{U}{k_2} || l \rangle
+  \end{multline*}
+  \source{Judd 1963: (3-39)}
+
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \head{Scalar product}
+
+  Scalar product:
+  \begin{align*}
+    \dot{\tensor{T}{k}}{\tensor{U}{k}}
+    &= (-1)^k \sqrt{2k+1}\,
+    \elcross{\tensor{T}{k}}{\tensor{U}{k}}{0}{0} 
+    \\[.5\baselineskip]
+    &= \sum_q (-1)^q\,  T_{q}^{(k)} U_{-q}^{(k)}
+  \end{align*}
+
+  Generalisation to three tensors:
+  \begin{displaymath}
+    \threedot{\tensor{T}{k}}{\tensor{U}{k'}}{\tensor{V}{k''}} =
+    \sum_{q,q',q''}
+    \iiij{k}{k'}{k''}{q}{q'}{q''}\,
+    \element{T}{q}{k}\,
+    \element{U}{q'}{k'}\,
+    \element{V}{q''}{k''}
+  \end{displaymath}
+
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Recoupling of mixed tensor operators}
+
+  \begin{displaymath}
+    \cross{\tensor{T}{k_2}_2}{\tensor{T}{k_1}_1}{k} =
+    (-1)^{k_1-k_2-k}\,
+    \cross{\tensor{T}{k_1}_1}{\tensor{T}{k_2}_2}{k}
+  \end{displaymath}
+  \begin{multline*}
+    \cross%
+    {\cross{\tensor{T}{k_1}_1}{\tensor{T}{k_2}_2}{k_{12}}}%
+    {\tensor{T}{k_3}_3}{k} =
+    \\[.333\baselineskip]
+    \sum_{k_{23}}
+    \langle(k_1k_2)k_{12},k_3,k\,|\,k_1,(k_2k_3)k_{23},k\rangle\ 
+    \cross%
+    {\tensor{T}{k_1}_1}%
+    {\cross{\tensor{T}{k_2}_2}{\tensor{T}{k_3}_3}{k_{23}}}{k}
+  \end{multline*}
+
+  \vspace{\baselineskip}
+  Special cases:
+  \begin{displaymath}
+    \cross%
+    {\cross{\tensor{T}{k_1}_1}{\tensor{T}{k_2}_2}{k_3}}%
+    {\tensor{T}{k_3}_3}{0} =
+    \cross%
+    {\tensor{T}{k_1}_1}%
+    {\cross{\tensor{T}{k_2}_2}{\tensor{T}{k_3}_3}{k_1}}{0}
+  \end{displaymath}
+  \begin{multline*}
+    \bigdot%
+    {\cross{\tensor{T}{k_1}_1}{\tensor{T}{k_2}_2}{k_3}}%
+    {\tensor{T}{k_3}_3} =
+    \\
+    (-1)^{k_3-k_1}
+    \sqrt{\frac{2k_3+1}{2k_1+1}}\,
+    \bigdot%
+    {\tensor{T}{k_1}_1}%
+    {\cross{\tensor{T}{k_2}_2}{\tensor{T}{k_3}_3}{k_1}}
+  \end{multline*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Vector operators}
+  
+  Vector operators may be expressed as tensor operators of rank~1. The
+  statement $\vector{t}=\tensor{t}{1}$ implies the following rules:
+  \begin{eqnarray*}
+    t_x & = & \displaystyle
+    \frac{1}{\sqrt2}\, \big(\element{t}{-1}{1} - \element{t}{+1}{1}\big)
+    \\[0.333\baselineskip]
+    t_y & = & \displaystyle
+    \frac{i}{\sqrt2}\, \big(\element{t}{-1}{1} + \element{t}{+1}{1}\big)
+    \\[0.333\baselineskip]
+    t_z & = & \displaystyle
+    \element{t}{0}{1}
+  \end{eqnarray*}
+
+  This definition keeps the scalar product constant:
+  \begin{displaymath}
+    \dot{\vector{t}}{\vector{v}} =
+    \dot{\tensor{t}{1}}{\tensor{v}{1}}
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{N-electron systems}
+  
+  Determinantal product states for $\alpha = (nlm_lm_s)$:
+  \begin{displaymath}
+    |\Psi\rangle = 
+    |\{\alpha_1\alpha_2\ldots\alpha_N\}\rangle
+  \end{displaymath}
+  
+  \vspace{-.333\baselineskip}
+  General one-, two-, and three-electron N-particle operators as sums
+  of elementary one-, two-, and three-electron operators.
+  \begin{displaymath}
+    F = \sum_i f_i
+    \qquad
+    G = \sum_{i<j} g_{ij}
+    \qquad
+    H = \sum_{i<j<k} h_{ijk}
+  \end{displaymath}
+  
+  \vspace{-.333\baselineskip}
+  Special case: The scalar product of two one-electron tensor
+  operators splits into an one-electron and a two-electron part:
+  \begin{displaymath}
+    \dot{\tensor{U}{k}}{\tensor{T}{k}}
+    = \sum_i \dot{\tensor{u}{k}_i}{\tensor{t}{k}_i}
+    + \sum_{i<j} \dot{\tensor{u}{k}_i}{\tensor{t}{k}_j}
+    + \sum_{i<j} \dot{\tensor{u}{k}_j}{\tensor{t}{k}_i}
+  \end{displaymath}
+  
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Unit tensor operators}
+
+  Unit tensor operator in orbital space:
+  \begin{displaymath}
+    \tensor{U}{k} = \sum_i \tensor{u}{k}_i
+  \end{displaymath}
+  \vspace{-0.8\baselineskip}
+  \begin{displaymath}
+    \langle l' || \tensor{u}{k} || l \rangle = \delta(l',l)
+  \end{displaymath}
+  \begin{displaymath}
+    \element{u}{q}{k} | l, m \rangle =
+    \sum_{m'}
+    (-1)^{l-m'}\,
+    \iiij{l}{k}{l}{-m'}{q}{m}
+    | l, m' \rangle
+  \end{displaymath}
+
+  Unit tensor operator in spin space:
+  \begin{displaymath}
+    \tensor{T}{\kappa} = \sum_i \tensor{t}{\kappa}_i
+  \end{displaymath}
+  \vspace{-0.8\baselineskip}
+  \begin{displaymath}
+    \langle s || \tensor{t}{\kappa} || s \rangle = 1
+  \end{displaymath}
+  \begin{displaymath}
+    \element{t}{q}{\kappa} | m_s \rangle =
+    \sum_{m'_s}
+    (-1)^{s-m'_s}\,
+    \iiij{s}{\kappa}{s}{-m'_s}{q}{m_s}
+    | m'_s \rangle
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Reduction of two unit tensor operators}
+
+  \vspace{-\baselineskip}
+  \begin{displaymath}
+    \cross{\tensor{u}{k_1}_i}{\tensor{u}{k_2}_i}{k} =
+    (-1)^{2l+k}
+    \sqrt{2k+1}
+    \vij{k_1}{k}{k_2}{l}{l}{l}\,
+    \tensor{u}{k}_i
+  \end{displaymath}
+  \begin{displaymath}
+    \dot{\tensor{u}{k}_i}{\tensor{u}{k}_i} =
+    \frac{(-1)^k}{\sqrt{(2l+1)(2k+1)}}\ 
+    \tensor{u}{0}_i
+  \end{displaymath}
+
+  \vspace{-0.5\baselineskip}
+  Special cases:
+  \begin{align*}
+    \cross{\tensor{u}{1}_i}{\tensor{u}{k}_i}{k-1} &=
+    -\frac12\,
+    \sqrt{\frac{(2l+k+1) (2l-k+1) k}{l (l+1) (2l+1) (2k+1)}}\ 
+    \tensor{u}{k-1}_i
+    \\[\baselineskip]
+    \cross{\tensor{u}{1}_i}{\tensor{u}{k}_i}{k} &=
+    -\frac12\,
+    \sqrt{\frac{k (k+1)}{l (l+1) (2l+1)}}\ 
+    \tensor{u}{k}_i
+    \\[\baselineskip]
+    \cross{\tensor{u}{1}_i}{\tensor{u}{k}_i}{k+1} &=
+    \frac12\,
+    \sqrt{\frac{(2l+k+2) (2l-k) (k+1)}{l (l+1) (2l+1) (2k+1)}}\ 
+    \tensor{u}{k+1}_i
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{$\texttensor{c}{k}$ operator}
+
+  \begin{displaymath}
+    \tensor{C}{k} = \sum_i \tensor{c}{k}_i
+  \end{displaymath}
+  \vspace{0.5\baselineskip}
+  \begin{displaymath}
+    \langle l' || \tensor{c}{k} || l \rangle =
+    (-1)^{l'}
+    \sqrt{(2l'+1)(2l+1)}\,
+    \iiij{l'}{k}{l}{0}{0}{0}
+  \end{displaymath}
+  \vspace{0.5\baselineskip}
+  \begin{multline*}
+    \qquad
+    \element{c}{q}{k} | l m \rangle =
+    \sum_{l',m'}
+    (-1)^{m'}
+    \sqrt{(2l'+1)(2l+1)}\,
+    \\[0.333\baselineskip]
+    \times
+    \iiij{l'}{k}{l}{0}{0}{0}
+    \iiij{l'}{k}{l}{-m'}{q}{m}
+    | l' m' \rangle
+    \qquad
+  \end{multline*}
+  
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Reduction of two $\texttensor{c}{k}$ operators}
+
+  \begin{displaymath}
+    \cross{\tensor{c}{k_1}_i}{\tensor{c}{k_2}_i}{k} =
+    (-1)^k
+    \sqrt{2k+1}\,
+    \iiij{k_1}{k}{k_2}{0}{0}{0}\,
+    \tensor{c}{k}_i
+  \end{displaymath}
+  \source{Judd 1963: (4-5)}
+  \vspace{-0.5\baselineskip}
+  \begin{displaymath}
+    \dot{\tensor{c}{k}_i}{\tensor{c}{k}_i} =
+    (-1)^k
+    \sqrt{2k+1}\ 
+    \tensor{c}{0}_i
+  \end{displaymath}
+
+  Special cases:
+  \begin{align*}
+    \cross{\tensor{c}{1}_i}{\tensor{c}{k}_i}{k-1} &=
+    -\sqrt{\frac{k}{2k+1}}\ 
+    \tensor{c}{k-1}_i
+    \\[0.5\baselineskip]
+    \cross{\tensor{c}{1}_i}{\tensor{c}{k}_i}{k} &= 0
+    \\[0.5\baselineskip]
+    \cross{\tensor{c}{1}_i}{\tensor{c}{k}_i}{k+1} &=
+    \sqrt{\frac{k+1}{2k+1}}\ 
+    \tensor{c}{k+1}_i
+  \end{align*}
+  \source{Judd 1963: (4-6, 4-7)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Important one-electron tensor operators}
+  
+  \begin{align*}
+    \vector{L} &= \sqrt{l(l+1)(2l+1)}\,\tensor{U}{1}
+    \\[0.5\baselineskip]
+    \vector{S} &= \sqrt{3/2}\,\tensor{T}{1}
+    \\[0.5\baselineskip]
+    \vector{J} &= 
+    \sqrt{l(l+1)(2l+1)}\,\tensor{U}{1} +
+    \sqrt{3/2}\,\tensor{T}{1}
+  \end{align*}
+
+  \begin{displaymath}
+    \tensor{V}{k} = \sqrt{2l+1}\, \tensor{U}{k}
+  \end{displaymath}
+  
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Important scalar product operators}
+
+  \begin{align*}
+    \vector{L}^2 &=
+    l(l+1)(2l+1)\, \dot{\tensor{U}{1}}{\tensor{U}{1}}
+    \\[0.5\baselineskip]
+    \vector{S}^2 &=
+    3/2\, \dot{\tensor{T}{1}}{\tensor{T}{1}}
+    \\[0.5\baselineskip]
+    \vector{J}^2 &= 
+    l(l+1)(2l+1)\, \dot{\tensor{U}{1}}{\tensor{U}{1}} +
+    3/2\, \dot{\tensor{T}{1}}{\tensor{T}{1}}
+    \\[0\baselineskip]
+    & \qquad + \sqrt{6l(l+1)(2l+1)}\, \dot{\tensor{U}{1}}{\tensor{T}{1}}
+  \end{align*}
+
+  \begin{align*}
+    \scalartensor{G}(R_{2l+1}) &= \frac{1}{2l-1}
+    \sum_{\stackrel{k=1}{k\,\text{odd}}}^{2l-1}
+    (2k+1)\,
+    \dot{\tensor{U}{k}}{\tensor{U}{k}}
+    \\[0.5\baselineskip]
+    \scalartensor{G}(G_2) &=
+    \frac14 \big[
+    3\,\dot{\tensor{U}{1}}{\tensor{U}{1}} +
+    11\,\dot{\tensor{U}{5}}{\tensor{U}{5}}
+    \big]
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Important double tensor operators}
+
+  \begin{align*}
+    \tensor{V}{\kappa k} &=
+    \sqrt{3/2}\ 
+    \tensor{T}{\kappa}
+    \tensor{U}{k}
+    \\[\baselineskip]
+    \tensor{W}{\kappa k} &=
+    \sqrt{(2k+1)(2\kappa+1)}\ 
+    \tensor{T}{\kappa}
+    \tensor{U}{k}
+  \end{align*}
+  \vspace{\baselineskip}
+  \begin{multline*}
+    \crosstop{\tensor{W}{\kappa_1 k_1}}{\tensor{W}{\kappa_2 k_2}}%
+    {kk}{0} =
+    \\[0.333\baselineskip]
+    \sqrt{(2k_1+1)(2k_2+1)(2\kappa_1+1)(2\kappa_2+1)}
+    \\[0.333\baselineskip]
+    \times
+    \bigcross%
+    {\cross{\tensor{T}{\kappa_1}}{\tensor{T}{\kappa_2}}{k}}
+    {\cross{\tensor{U}{k_1}}{\tensor{U}{k_2}}{k}}{0}
+  \end{multline*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Matrix elements of one-electron operators}
+  
+  If the set $(\alpha'_1\alpha'_2\ldots\alpha'_N)$ can be ordered so
+  that $\alpha'_i=\alpha_i$
+
+  \vspace{-.5\baselineskip}
+  \begin{itemize}
+  \item for all $i$, then
+    \begin{displaymath}
+      \langle\Psi'|F|\Psi\rangle
+      = \sum_i
+      \langle\alpha_i|f_1
+      |\alpha_i\rangle
+    \end{displaymath}
+    \vspace{-1.5\baselineskip}
+    
+  \item for all $i$ except of $i=N$, then
+    \begin{displaymath}
+      \langle\Psi'|F|\Psi\rangle
+      =
+      \langle\alpha'_N|f_1
+      |\alpha_N\rangle
+    \end{displaymath}
+  \end{itemize}
+  \vspace{-.5\baselineskip}
+  
+  In all other cases the matrix element is zero.
+  
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Matrix elements of two-electron operators}
+  
+  If the set $(\alpha'_1\alpha'_2\ldots\alpha'_N)$ can be ordered so
+  that $\alpha'_i=\alpha_i$
+  
+  \vspace{-.5\baselineskip}
+  \begin{itemize}
+  \item for all $i$, then
+    \begin{displaymath}
+      \langle\Psi'|G|\Psi\rangle
+      = \sum_{i<j}
+      \langle\{\alpha_i\alpha_j\}|g_{12}
+      |\{\alpha_i\alpha_j\}\rangle
+    \end{displaymath}
+    \vspace{-1.5\baselineskip}
+
+  \item for all $i$ except of $i=N$, then
+    \begin{displaymath}
+      \langle\Psi'|G|\Psi\rangle
+      = \sum_i
+      \langle\{\alpha_i\alpha'_N\}|g_{12}
+      |\{\alpha_i\alpha_N\}\rangle
+    \end{displaymath}
+    \vspace{-1.5\baselineskip}
+
+  \item for all $i$ except of $i=N-1,N$, then
+    \begin{displaymath}
+      \langle\Psi'|G|\Psi\rangle
+      =
+      \langle\{\alpha'_{N-1}\alpha'_N\}|g_{12}
+      |\{\alpha_{N-1}\alpha_N\}\rangle
+    \end{displaymath}
+  \end{itemize}
+  \vspace{-.5\baselineskip}
+
+  In all other cases the matrix element is zero.
+  
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Matrix elements of three-electron operators}
+  
+  If the set $(\alpha'_1\alpha'_2\ldots\alpha'_N)$ can be ordered so
+  that $\alpha'_i=\alpha_i$
+
+  \vspace{-.5\baselineskip}
+  \begin{itemize}
+  \item for all $i$, then
+    \begin{displaymath}
+      \langle\Psi'|H|\Psi\rangle
+      = \sum_{i<j<k}
+      \langle\{\alpha_i\alpha_j\alpha_k\}|h_{123}
+      |\{\alpha_i\alpha_j\alpha_k\}\rangle
+    \end{displaymath}
+    \vspace{-1.5\baselineskip}
+
+  \item for all $i$ except of $i=N$, then
+    \begin{displaymath}
+      \langle\Psi'|H|\Psi\rangle
+      = \sum_{i<j}
+      \langle\{\alpha_i\alpha_j\alpha'_N\}|h_{123}
+      |\{\alpha_i\alpha_j\alpha_N\}\rangle
+    \end{displaymath}
+    \vspace{-1.5\baselineskip}
+
+  \item for all $i$ except of $i=N-1,N$, then
+    \begin{displaymath}
+      \langle\Psi'|H|\Psi\rangle
+      = \sum_i
+      \langle\{\alpha_i\alpha'_{N-1}\alpha'_N\}|h_{123}
+      |\{\alpha_i\alpha_{N-1}\alpha_N\}\rangle
+    \end{displaymath}
+    \vspace{-1.5\baselineskip}
+
+  \item for all $i$ except of $i=N-2,N-1,N$, then
+    \begin{displaymath}
+      \langle\Psi'|H|\Psi\rangle
+      =
+      \langle\alpha'_{N-2}\alpha'_{N-1}\alpha'_N|h_{123}
+      |\alpha_{N-2}\alpha_{N-1}\alpha_N\rangle
+    \end{displaymath}
+  \end{itemize}
+  \vspace{-.5\baselineskip}
+
+  In all other cases the matrix element is zero.
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Matrix elements of the unit tensor operator I}
+
+  \begin{displaymath}
+    \langle l, \mla |
+    \element{u}{q}{k}
+    | l, \mlb \rangle =
+    (-1)^{l-\mla}
+    \iiij{l}{k}{l}{-\mla}{q}{\mlb}
+    \\[-\baselineskip]
+  \end{displaymath}
+
+  \vspace{\baselineskip}
+  Special case:
+  \begin{displaymath}
+    \langle l, \mla |
+    \element{u}{0}{0}
+    | l, \mlb \rangle =
+    \frac{\delta(\mla,\mlb)}{\sqrt{2l+1}}
+    \\[-\baselineskip]
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Matrix elements of the unit tensor operator II}
+
+  \begin{multline*}
+    \langle l, \mla |
+    \elcross{\tensor{u}{k_1}}{\tensor{u}{k_2}}{q}{k}
+    | l, \mlb \rangle =
+    \\[0.333\baselineskip]
+    (-1)^{2l+k}
+    \sqrt{2k+1}\,
+    \vij{k_1}{k}{k_2}{l}{l}{l}
+    \langle l, \mla |
+    \element{u}{q}{k}
+    | l, \mlb \rangle
+  \end{multline*}
+
+  \vspace{\baselineskip}
+  Special case:
+  \begin{displaymath}
+    \langle l, \mla |
+    \dot{\tensor{u}{k}}{\tensor{u}{k}}
+    | l, \mlb \rangle =
+    \frac{\delta(\mla,\mlb)}{2l+1}
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Matrix elements of the unit tensor operator III}
+
+  \begin{multline*}
+    \langle l, \mla, \mlb |
+    \elcross{\tensor{u}{k_1}_1}{\tensor{u}{k_2}_2}{q}{k}
+    | l, \mlc, \mld \rangle =
+    \\[0.333\baselineskip]
+    \delta(q_1,\mla-\mlc)\,
+    \delta(q_2,\mlb-\mld)
+    %\times
+    (-1)^{k_1-k_2+q}
+    \sqrt{2k+1}
+    \\[0.333\baselineskip]
+    \times
+    \iiij{k_1}{k_2}{k}{q_1}{q_2}{-q}\,
+    \langle l, \mla | \element{u}{q_1}{k_1} | l, \mlc \rangle\,
+    \langle l, \mlb | \element{u}{q_2}{k_2} | l, \mld \rangle
+  \end{multline*}
+
+  \vspace{\baselineskip}
+  Special case:
+  \begin{multline*}
+    \langle l, \mla, \mlb |
+    \dot{\tensor{u}{k}_1}{\tensor{u}{k}_2}
+    | l, \mlc, \mld \rangle =
+    \delta(\mla+\mlb,\mlc+\mld)\,
+    \\[0.667\baselineskip]
+    \times
+    (-1)^{2l-\mla-\mld}
+    \iiij{l}{k}{l}{-\mla}{\mla-\mlc}{\mlc}
+    \iiij{l}{k}{l}{-\mlb}{\mlb-\mld}{\mld}
+  \end{multline*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

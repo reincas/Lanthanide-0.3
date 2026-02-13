@@ -1,0 +1,272 @@
+# Copyright 2000,2003 Reinhard Caspary <r.caspary@tu-bs.de>
+#
+# This file is part of the Python package Lanthanide.
+# 
+# Lanthanide is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+# 
+# Lanthanide is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Lanthanide; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+                       Installation procedures
+                       -----------------------
+
+======================================================================
+A. Installation on Unix
+======================================================================
+
+In the following it is assumed that Python is already running on your
+system. If you are not sure, type
+
+> python
+
+to start the interpreter. If you get the Python commandline,
+everything is ok. Leave Python with the key Ctrl-D. If you get an
+error message instead, You will have to install python on your system
+first. If python is not part of your system distribution then take it
+from http://www.python.org.
+
+
+1. Set PYTHONPATH
+-----------------
+
+In your shell type:
+
+> cat >> $HOME/.profile << EOF
+> PH=$HOME/lib/python
+> export PYTHONPATH=$PH/Spectrum:$PH/Lanthanide:$PH/Fiblas
+> EOF
+> . $HOME/.profile
+
+
+2. Install Numeric Python
+-------------------------
+
+Get the source package (e.g. Numeric-21.3.tar.gz) from
+http://www.numpy.org and save to $HOME/src. Then type in your shell:
+
+> cd $HOME/src
+> tar xzf ~/Numeric-*.tar.gz
+> cd Numeric-*
+> python setup.py build
+> su root
+> python setup.py install
+
+
+3. Install Scientific Python
+----------------------------
+
+Get the source package (e.g. ScientificPython-3.4.1.tar.gz) from
+http://dirac.cnrs-orleans.fr/ScientificPython and save it to
+$HOME/src. Then type in your shell:
+
+> cd $HOME/src
+> tar xzf ScientificPython-*.tar.gz
+> cd ScientificPython-*
+> python setup.py build
+> su root
+> python setup.py install
+
+
+4. Install the BLAS and LAPACK libraries
+----------------------------------------
+
+Get the source package lapack.tgz from http://www.netlib.org/lapack
+and save it to $HOME/src. Then type in your shell:
+
+> cd $HOME/src
+> tar xzf lapack.tgz
+> cd LAPACK
+
+Take the appropriate make.inc from the directory INSTALL. In case of a
+Linux system e.g. type:
+
+> cp INSTALL/make.inc.LINUX make.inc
+> make blaslib
+> make lapacklib
+> su root
+> cp blas_LINUX.a /usr/lib/libblas.a
+> cp lapack_LINUX.a /usr/lib/liblapack.a
+
+
+5. Install Spectrum
+-------------------
+
+Copy the Spectrum package (e.g. Spectrum-0.2.tar.gz) to
+$HOME/src. Then type in your shell:
+
+> cd $HOME/src
+> tar xzf Spectrum-*.tar.gz
+> cd Spectrum-*
+> python setup.py install
+
+To test the package type (see README for more info):
+
+> cd test
+> python test.py
+
+
+6. Install Lanthanide
+---------------------
+
+Copy the Lanthanide package (e.g. Lanthanide-0.2.tar.gz) to
+$HOME/src. Then type in your shell:
+
+> cd $HOME/src
+> tar xzf Lanthanide-*.tar.gz
+> cd Lanthanide-*
+> python setup.py install
+
+To test the package type (see README for more info):
+
+> cd test
+> python test.py
+
+
+5. Install Fiblas
+-----------------
+
+Copy the Fiblas package (e.g. Fiblas-0.2.tar.gz) to
+$HOME/src. Then type in your shell:
+
+> cd $HOME/src
+> tar xzf Fiblas-*.tar.gz
+> cd Fiblas-*
+> python setup.py install
+
+To test the package type (see README for more info):
+
+> cd test
+> python test.py
+
+
+
+======================================================================
+B. Installation on Microsoft Windows
+======================================================================
+
+1. Install the cygwin environment
+---------------------------------
+
+Go to http://www.cygwin.com and run the installer program setup.exe on
+this page. In addition to the default selection install at least the
+following components:
+
+  Devel - gcc
+  Devel - make
+  Interpreters - python
+
+Then start the cygwin shell (bash) and type:
+
+> cat >> ~/.bashrc << EOF
+> PH=$HOME/lib/python
+> export PYTHONPATH=$PH/Spectrum:$PH/Lanthanide:$PH/Fiblas
+> EOF
+> exit
+
+Start the cygwin shell again.
+
+
+2. Install Numeric Python
+-------------------------
+
+Get the source package (e.g. Numeric-21.3.tar.gz) from
+http://www.numpy.org and save it to C:\cygwin\usr\src. In the cygwin
+shell type:
+
+> cd /usr/src
+> tar xzf Numeric-*.tar.gz
+> cd Numeric-*
+> python setup.py install
+
+
+3. Install Scientific Python
+----------------------------
+
+Get the source package (e.g. ScientificPython-3.4.1.tar.gz) from
+http://dirac.cnrs-orleans.fr/ScientificPython and save it to
+C:\cygwin\usr\src. In the cygwin shell type:
+
+> cd /usr/src
+> tar xzf ScientificPython-*.tar.gz
+> cd ScientificPython-*
+> python setup.py install
+
+
+4. Install the BLAS and LAPACK libraries
+----------------------------------------
+
+Get the source package lapack.tgz from http://www.netlib.org/lapack
+and save it to C:\cygwin\usr\src. In the cygwin shell type:
+
+> cd /usr/src
+> tar xzf lapack.tgz
+> cd LAPACK
+> cp INSTALL/make.inc.LINUX make.inc
+> make blaslib
+> make lapacklib
+> cp blas_LINUX.a /usr/lib/libblas.a
+> cp lapack_LINUX.a /usr/lib/liblapack.a
+
+
+5. Install Spectrum
+-------------------
+
+Copy the Spectrum package (e.g. Spectrum-0.2.tar.gz) to
+C:\cygwin\usr\src. In the cygwin shell type:
+
+> cd /usr/src
+> tar xzf Spectrum-*.tar.gz
+> cd Spectrum-*
+> python setup.py install
+
+To test the package type (see README for more info):
+
+> cd test
+> python test.py
+
+
+6. Install Lanthanide
+---------------------
+
+Copy the Lanthanide package (e.g. Lanthanide-0.2.tar.gz) to
+C:\cygwin\usr\src. In the cygwin shell type:
+
+> cd /usr/src
+> tar xzf Lanthanide-*.tar.gz
+> cd Lanthanide-*
+> python setup.py install
+
+To test the package type (see README for more info):
+
+> cd test
+> python test.py
+
+
+5. Install Fiblas
+-----------------
+
+Copy the Fiblas package (e.g. Fiblas-0.2.tar.gz) to
+C:\cygwin\usr\src. In the cygwin shell type:
+
+> cd /usr/src
+> tar xzf Fiblas-*.tar.gz
+> cd Fiblas-*
+> python setup.py install
+
+To test the package type (see README for more info):
+
+> cd test
+> python test.py
+
+
+That's it. Have fun!

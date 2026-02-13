@@ -1,0 +1,513 @@
+\documentclass[dvips,landscape,a4paper]{slides}
+%\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage{epsfig}
+\usepackage{amsmath}
+%\usepackage{amstex}
+\usepackage[german]{babel}
+
+\addtolength{\topmargin}{-30mm}
+\addtolength{\textheight}{45mm}
+
+\def\einheit#1#2{\ensuremath{\mathrm{#1\,#2}}}
+\def\chem#1{\ensuremath{\mathrm{#1}}}
+\def\stacked#1#2{\stackrel{\scriptstyle #1}{\scriptstyle #2}}
+
+\def\shalf{{\scriptstyle\frac12}}
+
+\def\vector#1{\vec{#1}}
+\def\tensor#1#2{\hat{#1}^{{(#2)}}}
+\def\scalartensor#1{\hat{#1}}
+\def\element#1#2#3{#1_{#2}^{{(#3)}}}
+
+\def\textvector#1{\vec{\text{#1}}}
+\def\texttensor#1#2{\hat{\text{#1}}^{\text{{(#2)}}}}
+\def\textscalartensor#1{\hat{\text{#1}}}
+\def\textelement#1#2#3{\text{#1}_{\text{#2}}^{\text{{(#3)}}}}
+
+\def\dot#1#2{({#1} \cdot {#2})}
+\def\threedot#1#2#3{({#1} \cdot {#2} \cdot {#3})}
+\def\bigdot#1#2{\big({#1} \cdot {#2}\big)}
+\def\cross#1#2#3{\{{#1} \!\times {#2}\}^{(#3)}}
+\def\crosstop#1#2#3#4{\{{#1} \!\times {#2}\}^{(#3){#4}}}
+\def\bigcross#1#2#3{\big\{{#1} \!\times {#2}\big\}^{(#3)}}
+\def\elcross#1#2#3#4{\{{#1} \!\times {#2}\}_{#3}^{(#4)}}
+\def\bigelcross#1#2#3#4{\big\{{#1} \!\times {#2}\big\}_{#3}^{(#4)}}
+
+\def\la{l_a}\def\mla{m_{l_a}}\def\msa{m_{s_a}}
+\def\lb{l_b}\def\mlb{m_{l_b}}\def\msb{m_{s_b}}
+\def\lc{l_c}\def\mlc{m_{l_c}}\def\msc{m_{s_c}}
+\def\ld{l_d}\def\mld{m_{l_d}}\def\msd{m_{s_d}}
+
+\def\su{\rule{0ex}{2.7ex}}
+\def\sd{\rule[-1.7ex]{0ex}{1.7ex}}
+
+\def\iiij#1#2#3#4#5#6{%
+  \begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+\def\vij#1#2#3#4#5#6{%
+  \left\{\begin{matrix}#1&#2&#3\\#4&#5&#6\end{matrix}\right\}}
+
+\def\head#1{
+  \begin{center}
+    \bfseries #1\relax
+  \end{center}
+  }
+
+\def\source#1{
+  \begin{flushright}
+    \tiny #1\relax
+  \end{flushright}
+  }
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \begin{center}
+    \Large\bfseries
+    Hamilton Operators \\
+    of $\text{l}^\text{N}$ Configurations
+  \end{center}
+  \vspace{3\baselineskip}
+  \begin{center}
+    Reinhard Caspary
+  \end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Central field approximation}
+
+  Hamiltonian of an ion with a nucleus of charge $Z$ and $N$ electrons
+  in partly filled shells:
+  \begin{displaymath}
+    H = -\sum_{i}\frac{p_i^2}{2m_e}
+    -\sum_{i}\frac{Ze^2}{r_i}
+    + \sum_{i<j}\frac{e^2}{r_{ij}}
+  \end{displaymath}
+
+  Approximation: Every electron is located in a central potential $U$,
+  caused by the coulomb energy of the nucleus and the other electrons:
+  \begin{displaymath}
+    H_0 = \sum_{i} \left[-\frac{p_i^2}{2m_e}+U(\vector{r}_i)\right]
+  \end{displaymath}
+
+  $H_0$ therefore is a sum of one-electron operators.
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Eigenfunctions of $\text{H}_\text{0}$}
+  
+  The solution of the Schrödinger equation of $H_0$ for one electron
+  splits into a radial and an orbital part as for the Hydrogen atom:
+  \begin{displaymath}
+    \psi_{\alpha} = \frac1r
+    R_{nl}(r)Y^l_{m_l}(\theta,\phi)\chi_{m_s}
+  \end{displaymath}
+  
+  where $\alpha = (nlm_lm_s)$. In the case of $N$ electrons, the
+  radial-orbit determinant of these eigenfunctions provides an
+  antisymetric solution of $H_0$, the so-called determinantal product
+  states:
+  \begin{displaymath}
+    \Psi_0 = 
+    \frac{\det[\psi_{\alpha_j}(i)]}{\sqrt{N}} =
+    \left\{\alpha_1\alpha_2\ldots\alpha_N\right\}
+  \end{displaymath}
+  
+  Inside a given configuration, all states $\Psi_0$ are completely
+  degenerated with the energy $E_0$.
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Perturbation theory}
+  
+  All interactions, which are not contained in $H_0$ are sumed up in
+  the perturbation operator
+  \begin{displaymath}
+    E = E_0 + \sum_i\langle\Psi'_0|H_i|\Psi_0\rangle
+  \end{displaymath}
+
+  The radial parts of the perturbation matrix elements are treated as
+  parameters $X^i$, as they depend on the unknown Potential~$U$. The
+  orbital part $x_i$ of the matrix elements is calculated:
+  \begin{displaymath}
+    E = E_0 + \sum_i X^i x_i
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Free ion hamiltonian}
+  
+  The free ion hamiltonian consists of operators of electric and magnetic
+  interactions inside the ground configuration and of effective
+  operators that take interactions with other configurations into
+  account.
+  
+  For the $\text{f}^N$ configuration, the following radial parameters
+  and the appropriate angular operators apear:
+
+  \begin{center}
+    \begin{tabular}{|c|l|l|}
+      \hline
+      \su& \multicolumn{1}{c|}{Intra-configuration}
+      \sd& \multicolumn{1}{c|}{Inter-configuration} \\
+      \hline
+      electric & 
+      \begin{tabular}[c]{rl}
+        $H_1$: & $F^2,F^4,F^6$ \\
+      \end{tabular} &
+      \begin{tabular}[c]{rl}
+        \su$H_3$: & $\alpha,\beta,\gamma$ \\
+        \sd$H_4$: & $T^2,T^3,T^4,T^6,T^7,T^8$
+      \end{tabular} \\
+      \hline
+      magnetic &
+      \begin{tabular}[c]{rl}
+        \su$H_2$: & $\zeta$ \\
+        \sd$H_5$: & $M^0,M^2,M^4$
+      \end{tabular} &
+      \begin{tabular}[c]{rl}
+        $H_6$: & $P^2,P^4,P^6$ \\
+      \end{tabular} \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Coulomb interaction}
+  
+  The first component of the perturbation operator is the remaining
+  part of $H$ not contained in $H_0$:
+  \begin{displaymath}
+    H-H_0 = \sum_{i=1}^{N}\left[-\frac{Ze^2}{r_i}-U(\vector{r}_i)\right]
+    + \sum_{i<j}\frac{e^2}{r_{ij}}
+  \end{displaymath}
+
+  For all states of a given configuration the first part leads to the
+  same energy shift, therefore
+  \begin{displaymath}
+    H_1
+    = \sum_{i<j}\frac{e^2}{r_{ij}}
+    = e^2\, \sum_{i<j}\, \frac{r_<^k}{r_>^{k+1}}\,
+    \big(\tensor{c}{k}_i\cdot\tensor{c}{k}_j\big)
+  \end{displaymath}
+
+  The energy shift is
+  \begin{displaymath}
+    E_1 = \sum_{\stacked{k=2}{k\,\text{even}}}^{2l} F^k f_k
+    \qquad
+    \scalartensor{f}_k =
+    \sum_{i<j}
+    \big(\tensor{c}{k}_i\cdot\tensor{c}{k}_j\big)
+  \end{displaymath}
+  
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Spin-orbit interaction}
+  
+  The hamiltonian of the spin-orbit interaction is given by the
+  following expression:
+  \begin{displaymath}
+    H_2 = \sum_i
+    \frac{\hbar^2}{2m^2c^2r_i}\,
+    \frac{\text{d}U(\vector{r}_i)\,}{\text{d}r_i}\,
+    \dot{\vector{l}_i}{\vector{s}_i}
+  \end{displaymath}
+
+  The energy shift is
+  \begin{align*}
+    E_2 &= \zeta_{nl}\,Z_{so}
+    \\[.667\baselineskip]
+    \scalartensor{Z}_{so} &=
+    \sum_i
+    \dot{\vector{l}_i}{\vector{s}_i}
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Coulomb configuration interaction I}
+  
+  The coulomb interaction of the $l^N$ configuration with the
+  three types of configurations
+  \begin{displaymath}
+    l^{n-2}l'^2 \,/\, l^{n-2}l'l'' \,,
+    \quad
+    l'^{4l'}l^{n+2} \,/\, l'^{4l'+1}l''^{4l''+1}l^{n+2} \,\text{, and}
+    \quad
+    l'^{4l'+1}l^{n}l''
+  \end{displaymath}
+  leads to the following energy shift:
+  \vspace{-.5\baselineskip}
+  \begin{quote}
+    \begin{itemize}
+    \item $l = 1$:\qquad
+      $E_3 = \alpha L(L+1)$
+    \item $l = 2$:\qquad
+      $E_3 = \alpha L(L+1) + \beta G(R_5)$
+    \item $l = 3$:\qquad
+      $E_3 = \alpha L(L+1) + \beta G(G_2) + \gamma G(R_7)$
+    \end{itemize}
+  \end{quote}
+  \vspace{-.5\baselineskip}
+  
+  $L(L+1)$ is the matrix element of $\vector{L}^2$, $G(S)$ is the
+  matrix element of Casimir's operator of the symetry group $S$.
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Coulomb configuration interaction II}
+  
+  The coulomb interaction of the $l^N$ configuration with the
+  remaining two relevant types of configurations
+  \begin{displaymath}
+    l^{n-1}l'
+    \quad \text{and} \quad
+    l'^{4l'+1}l^{n+1}
+  \end{displaymath}
+  leads to the following energy shift:
+  \begin{displaymath}
+    E_4 = \sum_{n} T^n t_n
+  \end{displaymath}
+  \begin{displaymath}
+    \scalartensor{t}_{n} =
+    3!\,
+    \langle k k' k'' | n \rangle\,
+    \sum_{i<j<k}
+    \threedot{\tensor{v}{k}_i}{\tensor{v}{k'}_j}{\tensor{v}{k''}_k}
+  \end{displaymath}
+  
+  The parameters $k$, $k'$, and $k''$ may have even values between 2
+  and $2l$ and their order is of no importance. Therefore $n$ may run
+  from 1 to $l^2+l!/[(l-3)!3!]$. But in case of $\text{f}^N$
+  configurations, only the $T^n$'s with $n=2,3,4,6,7,8$ are lineary
+  independant.
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Spin-spin and spin-other-orbit interaction}
+  
+  \vspace{\baselineskip}
+  The hamiltonian of the spin-spin and spin-other-orbit interaction is
+  given by the expression
+  \vspace{0.333\baselineskip}
+  \begin{displaymath}
+    H_5 = \frac{e^2\hbar^2}{m^2c^2} \sum_{i<j}
+    \bigg[
+    \frac{\dot{\vector{s}_i\!}{\!\vector{s}_i}}{\vector{r}_{ij}^{\,3}} -
+    \frac{3 \dot{\vector{r}_{ij}\!}{\!\vector{s}_i}
+      \dot{\vector{r}_{ij}\!}{\!\vector{s}_j}}{r_{ij}^5}
+    +
+    \bigdot{[\vector{\nabla}_{\!i}\frac{1}{r_{ij}} \!\times\! \vector{p}_i]}%
+    {[\vector{s}_i \!+\! 2\vector{s}_j]}
+    \bigg]
+  \end{displaymath}
+
+  \vspace{\baselineskip}
+  The energy shift is
+  \begin{displaymath}
+    E_5 = \sum_{\stacked{k=0}{k\,\text{even}}}^{2l-2} M^k m_k
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Operator $\textscalartensor{m}_\text{k}$}
+  
+  \begin{align*}
+    \scalartensor{m}_k =&
+    \sum_{i\neq j}
+    \bigg[a\,
+    \big[
+    \crosstop{\tensor{w}{0,k}_i}{\tensor{w}{1,k+1}_j}{11}{0} +
+    2\,\crosstop{\tensor{w}{0,k+1}_i}{\tensor{w}{1,k}_j}{11}{0}
+    \big]
+    \\[0\baselineskip]
+    &+b\,
+    \big[
+    \crosstop{\tensor{w}{0,k+2}_i}{\tensor{w}{1,k+1}_j}{11}{0} +
+    2\,\crosstop{\tensor{w}{0,k+1}_i}{\tensor{w}{1,k+2}_j}{11}{0}
+    \big]
+    \\[0\baselineskip]
+    &+c\,
+    \crosstop{\tensor{w}{1,k}_i}{\tensor{w}{1,k+2}_j}{22}{0}
+    \bigg]
+  \end{align*}
+  \source{Judd 1968: (1), (2)}
+
+  \vspace{-0.667\baselineskip}
+  \begin{align*}
+    a &=
+    \langle l || \tensor{C}{k} || l \rangle^2\,
+    \sqrt{(k+1)(2l+k+2)(2l-k)}
+    \\[0.333\baselineskip]
+    b &=
+    \langle l || \tensor{C}{k+2} || l \rangle^2\,
+    \sqrt{(k+2)(2l+k+3)(2l-k-1)}
+    \\[0.333\baselineskip]
+    c &=
+    -2
+    \langle l || \tensor{C}{k} || l \rangle\,
+    \langle l || \tensor{C}{k+2} || l \rangle\,
+    \sqrt{(k+1)(k+2)(2k+3)}
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Spin-orbit configuration interaction}
+  
+  The spin-orbit interaction of the $(nl)^N$ configuration with the three
+  configurations
+  \begin{displaymath}
+    (nl)^{N-1} n'l \,,
+    \quad
+    (n'l)^{4l+1} (nl)^{N+1} \,\text{, and}
+    \quad
+    (n'l')^{4l'+1} (nl)^N n''l'
+  \end{displaymath}
+  leads to the energy shift
+
+  \begin{displaymath}
+    E_6 = \sum_{\stacked{k=2}{k\,\text{even}}}^{2l} P^k p_k
+  \end{displaymath}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Operator $\textscalartensor{p}_\text{k}$}
+  
+  \begin{multline*}
+    \scalartensor{p}_k =
+    \langle l || \tensor{C}{k} || l \rangle^2\,
+    \frac{1}{\sqrt{2(2k+1)}}
+    \\[0.5\baselineskip]
+    \times
+    \sum_{i\neq j}
+    \bigg[
+    \sqrt{\frac{(2l+k+2)(2l-k)(k+1)}{2k+3}}\ 
+    \crosstop{\tensor{w}{0,k}_i}{\tensor{w}{1,k+1}_j}{11}{0}
+    \\[0.5\baselineskip]
+    -\sqrt{\frac{(2l+k+1)(2l-k+1)k}{2k+1}}\ 
+    \crosstop{\tensor{w}{0,k}_i}{\tensor{w}{1,k-1}_j}{11}{0}
+    \bigg]
+  \end{multline*}
+  \source{Goldschmidt 1978: (1.156)}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Crystal field interaction}
+  
+  The coulomb interaction of the electrons with an external charge
+  distribution $\varrho(\vector{r})$ is given by
+  \begin{displaymath}
+    H_7 =
+    -e\,\varrho(\vector{r})
+    \sum_i
+    \sum_{k,q}
+    \frac{r_i^k}{r^{k+1}}
+    \sqrt{\frac{4\pi}{2k+1}}
+    Y_q^k(\theta,\varphi)
+    (\element{C}{q}{k})_i
+  \end{displaymath}
+
+  The energy shift is
+  \begin{align*}
+    E_7 &=
+    \sum_{\stacked{k=2}{k\,\text{even}}}^{2l}
+    \sum_{q\,\text{even}}
+    B_q^k\, \sum_i (\element{C}{q}{k})_i
+    \\[0.333\baselineskip]
+    B_{-q}^k &= (-1)^q B_q^k
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+  \vspace*{\fill}
+  \head{Magnetic field interaction}
+  
+  The hamiltonian of an external magnetic field is
+  \begin{displaymath}
+    H_8 =
+    \mu\, \bigdot{\vector{B}}{\sum_i[\vector{l}_i+g_s\vector{s}_i]}
+  \end{displaymath}
+
+  The energy shift is
+  \begin{align*}
+    E_8 &= B_z Z_m
+    \\[0.333\baselineskip]
+    \scalartensor{Z}_m &= \mu
+    \sum_i[(l_z)_i+g_s(s_z)_i]
+  \end{align*}
+
+  \vspace*{\fill}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
