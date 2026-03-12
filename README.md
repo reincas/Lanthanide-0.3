@@ -17,8 +17,8 @@ Important: Place a symbolic link to the folder `matrix` in each of your working 
 to avoid the repeated calculation of all required matrices.
 This is how I restarted this ancient version in 2025 to compare it with the results of its successor package
 [Lanthanide](https://github.com/reincas/Lanthanide).
-You should definitively use this current version if you want to calculate energy levels and electronic transitions
-of lanthanides seriously.
+However, you should definitively use this current version if you want to calculate energy levels and electronic
+transitions of lanthanides seriously.
 
 ## Documentation
 
