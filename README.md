@@ -21,8 +21,9 @@ An [introduction](docs/terms.pdf) to states and energy levels of lanthanide ions
 an [introduction](docs/tensors.pdf) to tensor operators for $l^N$ configurations,
 a [collection](docs/wigner.pdf) of useful properties of Wigner 3j- and 6j-symbols,
 and a [summary](docs/hamiltonian.pdf) of the Hamiltonians for $l^N$ configurations.
-For the generation of nice term schemata with transitions I developed the Python package `termdia` which you
-find in `docs/termdia-0.3` with a [manual](docs/termdia-0.3/Anleitung.pdf) (in German).
+For the generation of nice term schemata with transitions I developed the Python package `termdia`.
+It was required for the generation of `docs/terms.pdf` and you find it in the folder `termdia-0.3` together
+with a [manual](termdia-0.3/Anleitung.pdf) (in German).
 
 ## Reference
 
