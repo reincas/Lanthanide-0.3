@@ -1,6 +1,6 @@
 # Lanthanide-0.3
 
-This is the Python software which I developed and used for my PhD work and some time after finishing my doctoral
+This is the Python software which I developed and used for my PhD work and some years after finishing my doctoral
 dissertation in 2001 [1].
 The software provides the calculation of all matrix elements of angular spherical tensor operators for the electron
 configurations of lanthanide ions.
