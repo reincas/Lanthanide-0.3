@@ -23,7 +23,7 @@ transitions of lanthanides seriously.
 ## Documentation
 
 You find a copy of the [thesis](docs/Dissertation.pdf) [1] and [corrections](docs/errata5.pdf) in the folder `docs`.
-There are also some more documents included which I prepared in that time for presentations or as memos:
+There are also some more documents included which I prepared at that time for presentations or as memos:
 An [introduction](docs/terms.pdf) to states and energy levels of lanthanide ions (in German),
 an [introduction](docs/tensors.pdf) to tensor operators for $l^N$ configurations,
 a [collection](docs/wigner.pdf) of useful properties of Wigner 3j- and 6j-symbols,
