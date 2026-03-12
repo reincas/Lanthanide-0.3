@@ -8,7 +8,7 @@ dipole transitions inside the energy level spectrum of lanthanide ions.
 
 ## Important Note
 
-This software is outdated and intended for reference only. If you really want to run it, you can use a 
+This software is outdated and intended for reference only. If you really want to execute it, you can use a 
 virtual machine running SuSE Linux 9.3. This is how I restarted it in 2025 to compare it with the results of its 
 successor package [Lanthanide](https://github.com/reincas/Lanthanide). Important: If you want to avoid the repeated calculation of all required
 matrices, you should  place a symbolic link to the folder 'matrix' in each of your working directories.
