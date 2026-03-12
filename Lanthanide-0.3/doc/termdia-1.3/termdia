@@ -1,0 +1,65 @@
+#!/usr/bin/env python
+# -*- Python -*-
+
+import sys
+import os
+import getopt
+import string
+import re
+from termEps import Eps
+
+GSBASE = "/usr/share/ghostscript/"
+
+dirs = []
+for dir in os.listdir(GSBASE):
+    m = re.match("^[0-9]+\.[0-9][0-9]$", dir)
+    if m and m.group(0) == dir:
+	dirs = dirs + [dir]
+dirs.sort()
+
+basepath  = GSBASE + dirs[-1]
+libpath  = basepath + "/lib"
+fontpath = GSBASE + "fonts"
+
+def usage():
+    global libpath, fontpath
+    name = os.path.basename(sys.argv[0])
+    print "Usage: %s [-h] [-V] [-l path] [-f path] file" % name
+    print "       -h:       help"
+    print "       -V:       print version information"
+    print "       -l path:  library path (default: %s)" % libpath
+    print "       -f path:  font path    (default: %s)" % fontpath
+    sys.exit()
+
+
+version = 0
+try:
+    opts, args = getopt.getopt(sys.argv[1:], "hVl:f:")
+    for arg, val in opts:
+	if arg == "-h":
+	    raise RuntimeError
+	elif arg == "-V":
+	    version = 1
+	elif arg == "-l":
+	    libpath = val
+	elif arg == "-f":
+	    fontpath = val
+	else:
+	    raise RuntimeError
+except:
+    usage()
+
+if version:
+    print "This is termdia 1.01  (c) Reinhard Caspary 1999"
+    sys.exit()
+
+if len(args) != 1:
+    usage()
+
+confname = args[0]
+
+eps = Eps(confname, basepath, libpath, fontpath)
+s = eps.show()
+s = re.sub("\n*$", "", s)
+
+print s

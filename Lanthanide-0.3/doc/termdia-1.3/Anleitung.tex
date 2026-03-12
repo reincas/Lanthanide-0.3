@@ -1,0 +1,255 @@
+\documentclass[11pt,twoside,a4paper]{article}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+%\usepackage{epsfig}
+\usepackage[german]{babel}
+%\usepackage{amstex}
+
+\addtolength{\oddsidemargin}{-8mm}
+\addtolength{\evensidemargin}{-8mm}
+\addtolength{\textwidth}{30mm}
+%\setlength{\topmargin}{-1cm}
+%\addtolength{\textheight}{3.5cm}
+%\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+
+\def\einheit#1#2{\ensuremath{\mathrm{#1\,#2}}}
+\def\chem#1{\ensuremath{\mathrm{#1}}}
+
+\begin{document}
+
+\vspace*{2\baselineskip}
+\begin{center}
+  \LARGE\textbf{Anleitung für termdia} \\[0.5\baselineskip]
+  \large Version 1.0
+\end{center}
+
+Das Programm termdia dient zum Erstellen von
+Energieniveaudiagrammen. Die Diagramme haben auf der linken Seite eine 
+beschriftete Energieachse und rechts ein oder mehrere
+Energieniveaudiagramme. Innerhalb der Teildiagramme sind diverse 
+Pfeile für Energieübergänge mit vielen Beschriftungsvarianten
+möglich. Die Größen der Achse und der Teildiagramme sind frei wählbar.
+
+
+
+\section{Programmaufruf}
+
+Die Syntax des Programmaufrufs ist
+
+\begin{center}
+\begin{verbatim}
+termdia [-h] [-V] [-l path] [-f path] file
+\end{verbatim}
+\end{center}
+
+\begin{description}
+\item[\texttt{-h}:] Gibt einen kurzen Hilfetext aus.
+\item[\texttt{-V}:] Gibt die Programmversion aus.
+\item[\texttt{-l path}:] Mit dieser Option kann ein alternatives
+  Verzeichnis der Ghostscript"=Bibliotheken angegeben werden.\\
+  Default ist: \texttt{/usr/share/ghostscript/4.03}.
+\item[\texttt{-f path}:] Hier kann ein alternatives Verzeichnis der
+  Ghostscript"=Fonts angegeben werden.\\
+  Default ist: \texttt{/usr/share/ghostscript/fonts}.
+\item[\texttt{file}:] Die Beschreibungsdatei des
+  Energieniveaudiagrammes.
+\end{description}
+
+Auf stdout wird eine EPS"=Datei ausgegeben, die eine exakt berechnete
+BoundingBox enthält.
+
+
+
+\section{Syntax der Beschreibungsdateien für termdia}
+
+
+\subsection{Allgemeines}
+
+Kommentare werden mit '\texttt{\#}' eingeleitet und enden am
+Zeilenende. Als Trennzeichen können Leerzeichen und Tabulatoren in
+beliebiger Anzahl benutzt werden. Trennzeichen an Anfang und Ende
+einer Zeile haben keine Bedeutung. Endet eine Zeile mit einem
+Backslash '\texttt{$\backslash$}', dann gilt dieser als Trennzeichen
+und die folgende Zeile wird angehängt. Dies gilt aber nicht, wenn der
+Backslash in einem Kommentar steht.
+
+Der Inhalt der Beschreibungsdatei ist in benannte Abschnitte
+unterteilt, die mit dem Namen des Abschnittes in eckigen Klammern in
+einer eigenen Zeile eingeleitet werden. Ein Abschnitt endet mit Beginn
+eines neuen Abschnittes oder am Dateiende. Zwingend sind die
+Abschnitte \texttt{[font]} und \texttt{[axis]}, jeder weitere
+Abschnitt beschreibt ein Energieniveausystem. Diese werden von links
+nach rechts in der Reihenfolge dargestellt, in der sie in der
+Beschreibungsdatei erstmals auftauchen. Abschnitte mit gleichem Namen
+werden zusammengefaßt.
+
+Innerhalb eines Abschnittes wird in jeder nicht leeren Zeile einer
+Variablen eine Liste durch Trennzeichen getrennter Werte zugewiesen:
+
+\begin{center}
+  \texttt{Variable = Wert1 Wert2 Wert3}.
+\end{center}
+
+Werte, die Leerzeichen enthalten, müssen durch doppelte
+Anführungsstriche '\texttt{"}' eingeschlossen sein. Tabulatoren werden
+zu einer Reihe von Leerzeichen erweitert und sollten daher nicht in
+Werten verwendet werden.
+
+In Strings für Beschriftungen kann Text hochgestellt werden, indem er
+mit den Zeichen '\texttt{\^}' eingerahmt wird. Analog bewirkt eine
+Klammerung mit '\texttt{\_}' eine Tiefstellung. Das Zeichen
+'\texttt{|}' bewirkt einen Zeilenumbruch und '\texttt{\~}' einen
+Zeilenumbruch mit Trennlinie.
+
+
+
+\subsection{Abschnitt \texttt{[font]}}
+
+In diesem Abschnitt müssen drei Variablen definiert werden:
+
+\begin{description}
+\item[\texttt{fontname}] ist der Name des Zeichensatzes für die
+  Beschriftungen.
+
+\item[\texttt{fontsize}] ist die Schriftgröße in Punkten.
+
+\item[\texttt{encoding}] ist die Codierung der Beschriftungsstrings in
+  der Beschreibungsdatei. Als Codierungen stehen derzeit zwei zur
+  Verfügung: \texttt{std} für die PostScript"=Standardcodierung und
+  \texttt{iso} für ISO"=Latin1.
+\end{description}
+
+
+
+\subsection{Abschnitt \texttt{[axis]}}
+
+In diesem Abschnitt müssen vier Variablen definiert werden:
+
+\begin{description}
+\item[\texttt{height}:] enthält drei Fließkommazahlen, die die Länge
+  der Energieachse in Millimetern bestimmen. Die erste Zahl gibt die
+  Länge unterhalb des Energienullpunktes an, die zweite Zahl bestimmt
+  den Abstand vom Energienullpunkt bis zu dem Energiewert
+  \texttt{tics[0]*scale} und die dritte Zahl definiert die restliche
+  Länge bis zur Pfeilspitze.
+  
+\item[\texttt{tics}:] enthält zwei Ganzzahlen, die die
+  Beschriftungsmarken definieren. Die erste Zahl legt den
+  Darstellungsbereich fest, wie für die Variable \texttt{height}
+  beschrieben, und die zweite Zahl bestimmt den Abstand der
+  Beschriftungsmarken in Energieeinheiten. Beide Zahlen müssen mit der
+  Variablen \texttt{scale} multipliziert werden, um Energiewerte zu
+  erhalten.
+  
+\item[\texttt{scale}:] Skalierungsfaktor (Ganzzahl) für die Werte von
+  \texttt{tics}.
+  
+\item[\texttt{label}:] ist ein String der die Achsenbeschriftung enthält.
+  Diese Beschriftung steht immer rechts oben neben der Pfeilspitze.
+\end{description}
+
+
+
+\subsection{Diagrammabschnitte}
+
+
+In diesem Abschnitt werden die folgenden Variablen definiert, wobei
+alle außer \texttt{label}, \texttt{text} und \texttt{arrow} zwingend
+sind:
+
+\begin{description}
+\item[\texttt{width}:] ist die Länge der Niveaulinien in Millimetern
+  (Fließkommazahl).
+  
+\item[\texttt{energy}:] enthält die Liste der Energieniveaus als
+  Ganzzahlen. Bei Bezügen auf diese Niveaus werden sie mit Nummern ab
+  Null in der Reihenfolge in dieser Liste angesprochen.
+
+\item[\texttt{label}:] enthält vier Angaben zur Beschriftung eines
+  oder mehrerer Energieniveaus in folgeder Reihenfolge:
+  \begin{itemize}
+  \item Der Buchstabe \texttt{l} oder \texttt{r}, je nachdem, ob die
+    Beschriftung links oder rechts von der Niveaulinie erfolgen
+    soll. Linke Beschriftungen werden rechtsbündig gesetzt und rechte
+    Beschriftungen linksbündig.
+  \item Die Nummer eines Energieniveaus oder einen Bereich von
+    Energieniveaus in der Form \texttt{a-b}. Im letzteren Fall wird
+    die Beschriftung in die Mitte dieses Bereiches gesetzt.
+  \item Eine Fließzahl, die den Zeilenabstand innerhalb der
+    Beschriftung relativ zur Schriftgröße angibt.
+  \item Der Beschriftungsstring selbst.
+  \end{itemize}
+
+\item[\texttt{text}:] enthält fünf Angaben zur Beschriftung des
+  Teildiagrammes in folgender Reihenfolge:
+  \begin{itemize}
+  \item Ein String aus drei Buchstaben, der die Position und die
+    Bündigkeit des Textes festlegt. Der erste Buchstabe darf
+    \texttt{l}, \texttt{c} oder \texttt{r} sein, was den Text nach
+    links, in die Mitte oder nach rechts setzt. Der zweite Buchstabe
+    darf \texttt{t}, \texttt{c} oder \texttt{b} sein, was den Text
+    nach oben, in die Mitte oder nach unten setzt. Der dritte
+    Buchstabe schließlich darf wiederum \texttt{l}, \texttt{c} oder
+    \texttt{r} sein, was rechtsbündigen, zentrierten oder
+    linksbündigen Text zur Folge hat.
+  \item Eine Ganzzahl die den horizontalen Offset des Textes von
+    seiner Standardposition festlegt (noch nicht implementiert).
+  \item Eine Ganzzahl die den vertikalen Offset des Textes von
+    seiner Standardposition festlegt (noch nicht implementiert).
+  \item Eine Fließzahl, die den Zeilenabstand innerhalb der
+    Beschriftung relativ zur Schriftgröße angibt.
+  \item Der Beschriftungsstring selbst.
+  \end{itemize}
+  Wenn kein Offset angegeben wird, wird die Textbox am Rand innerhalb
+  der Fläche platziert, deren horizontale Ausdehnung den Niveaulinien
+  und deren vertikale Ausdehnung der Energieachse entspricht.
+
+  
+\item[\texttt{num}:] ist die Anzahl der vertikalen Rasterlinien, auf
+  denen Pfeile positioniert werden können.
+  
+\item[\texttt{lskip}:] ist eine Fließkommazahl, die den Abstand der
+  ersten vertikalen Rasterlinie vom linken Ende der Niveaulinien
+  relativ zur Schriftgröße angibt.
+  
+\item[\texttt{rskip}:] ist eine Fließkommazahl, die den Abstand der
+  letzten vertikalen Rasterlinie vom rechten Ende der Niveaulinien
+  relativ zur Schriftgröße angibt.
+  
+\item[\texttt{arrow}:] enthält sechs Angaben zur Darstellung eines
+  Pfeiles in folgender Reihenfolge:
+  \begin{itemize}
+  \item Ein Buchstabe, der den Pfeiltyp angibt. Möglich ist \texttt{n} 
+    für einen normalen Pfeil, \texttt{b} für einen fetten Pfeil und
+    \texttt{c} für einen Schlangenlinien"=Pfeil.
+  \item Eine Zahl, die die Rasterlinie angibt, auf der der Pfeil
+    positioniert wird. Es ist auch eine Fließkommazahl zur
+    Positionierung zwischen den Rasterlinien erlaubt.
+  \item Die Nummer der Niveaulinie, auf der der Pfeil beginnt.
+  \item Die Nummer der Niveaulinie, auf der der Pfeil endet.
+  \item Ein String aus zwei Buchstaben, der die Position des
+    Pfeiltextes angibt. Der erste Buchstabe darf \texttt{l} oder
+    \texttt{r} sein, für eine Beschriftung auf der linken oder rechten
+    Seite des Pfeiles. Der zweite Buchstabe darf \texttt{u} oder
+    \texttt{d} sein, für einen nach oben oder nach unten laufenden
+    Text.
+  \item Der Beschriftungsstring selbst.
+  \end{itemize}
+\end{description}
+
+
+
+\section{Was noch zu tun ist}
+
+\begin{itemize}
+\item Es fehlen Pfeile mit definierten Längen, die nicht genau in
+  einem Energieniveau enden.
+\item Es fehlen schräge und bogenförmige Pfeile.
+\item Es fehlen Pfeile zwischen den Teildiagrammen.
+\item Die Variablen \texttt{axis.scale} und \texttt{dia.energy}
+  sollten als Fließzahlen statt Ganzzahlen definiert sein.
+\item Auswertung der Offsetangaben in \texttt{dia.text}.
+\end{itemize}
+\end{document}

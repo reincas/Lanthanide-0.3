@@ -1,0 +1,59 @@
+#!/usr/bin/python
+# -*- Python -*-
+
+import copy
+import termFont
+
+fontname = "Courier"
+fs = 1000
+char = "g"
+
+libpath  = "/usr/share/ghostscript/4.03"
+fontpath = "/usr/share/ghostscript/fonts"
+#libpath  = "/usr/lib/ghostscript/3.33"
+#fontpath = "/usr/lib/ghostscript/fonts"
+
+dict = {}
+dict["fontname"] = [ fontname ]
+dict["fontsize"] = [ "%f" % fs ]
+dict["encoding"] = [ "iso" ]
+
+font = termFont.Font(dict, libpath, fontpath)
+fs = font.fontsize
+
+bb = font.char_bbox(char)
+BBox = copy.copy(bb)
+BBox[0] = int(0.5 + BBox[0] - fs/5)
+BBox[1] = int(0.5 + BBox[1] - fs/5)
+BBox[2] = int(0.5 + BBox[2] + fs/5)
+BBox[3] = int(0.5 + BBox[3] + fs/5)
+
+print "%!PS-Adobe-3.0 EPSF-3.0"
+print "%%%%BoundingBox: %d %d %d %d" % (BBox[0], BBox[1], BBox[2], BBox[3])
+print "100 dict begin"
+print "/%s findfont" % fontname
+print "dup length dict begin"
+print "  { 1 index /FID ne { def } { pop pop } ifelse } forall"
+print "  /Encoding ISOLatin1Encoding def"
+print "  currentdict"
+print "end"
+print "/%s-latin1 exch definefont pop" % fontname
+print "/F1 { /%s-latin1 findfont %f scalefont setfont } def" % (fontname, fs)
+print "%f setlinewidth" % (fs/100)
+#print "gsave"
+#print "0 -120 translate"
+#print "90 rotate"
+#print "0 0 moveto 55 0 lineto stroke"
+#print "grestore"
+print "0 0 moveto"
+print "F1 (%s) show" % char
+print "%f %f moveto" % (bb[0], bb[1])
+print "%f %f lineto" % (bb[2], bb[1])
+print "%f %f lineto" % (bb[2], bb[3])
+print "%f %f lineto" % (bb[0], bb[3])
+print "closepath stroke"
+print "%f 0 moveto %f 0 lineto stroke" % (bb[0]-fs/10, bb[2]+fs/10)
+print "0 %f moveto 0 %f lineto stroke" % (-fs/20, fs/20)
+print "%f %f moveto %f %f lineto stroke" % (bb[4], -fs/20, bb[4], fs/20)
+print "end"
+print "%%EOF"

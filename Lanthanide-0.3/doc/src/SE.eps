@@ -1,0 +1,870 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 7 -29 679 398
+%%Creator: Reinhard Caspary
+%%Title: SE.dia
+%%CreationDate: Thu Mar 12 08:07:36 2026
+%%Pages: 1
+%%DocumentFonts: Helvetica
+%%DocumentNeededFonts: Helvetica
+%%LanguageLevel: 2
+%%EndComments
+
+100 dict begin
+%%BeginProlog
+%%% x y len rot lw color  <Line>  -
+  /Line { gsave cvx exec
+    5 3 roll translate setlinewidth 0 setlinecap rotate
+    0 0 moveto 0 lineto stroke
+  grestore } def 
+%%% <Line>
+%%% name  <edef> -
+  /edef { exch def } def
+%%% <edef>
+%%% scale  <arrowhead> -
+  /arrowhead { 1 dict begin
+    0 0 moveto -13 s mul 4 s mul lineto
+    -11 s mul 0 lineto -13 s mul -4 s mul lineto
+    closepath fill
+  end } def
+%%% <arrowhead>
+%%% arc prog1 prog2 prog3 prog4  <quadrant> -
+  /quadrant { 5 dict begin
+    /p4 exch def /p3 exch def /p2 exch def /p1 exch def
+    /a exch def
+    a 90 lt {p1} { a 180 lt {p2} { a 270 lt {p3} {p4}
+      ifelse } ifelse } ifelse
+  end } def
+%%% <quadrant>
+%%% x y len rot lw scale color  <Arrow>  -
+  /Arrow { gsave cvx exec 1 dict begin
+    /s exch def
+    5 3 roll translate setlinewidth 0 setlinecap rotate
+    dup 0 0 moveto s 11 mul sub 0 lineto stroke
+    0 translate
+    arrowhead
+  end grestore } def
+%%% <Arrow>
+%%% x y len rot lw scale color  <Darrow>  -
+  /Darrow { gsave cvx exec 1 dict begin
+    /s exch def
+    5 3 roll translate setlinewidth 0 setlinecap
+    [10 5] 0 setdash rotate
+    dup 0 0 moveto s 11 mul sub 0 lineto stroke
+    0 translate
+    arrowhead
+  end grestore } def
+%%% <Darrow>
+%%% x y len1 num r len2 rot lw scale color  <Carrow>  -
+  /Carrow { gsave cvx exec 8 dict begin
+    /s edef /w edef /d edef /l2 edef /r edef /n edef /l1 edef
+    translate w setlinewidth 0 setlinecap d rotate
+    0 0 moveto l1 w 2 div add 0 lineto stroke
+    l1 0 translate
+    1 1 n { /i edef 0 0 moveto r 0 r
+      i dup 2 idiv 2 mul eq { 180 0 arc } { 180 0 arcn } ifelse
+      r 2 mul 0 translate
+    } for
+    w -2 div 0 l2 0 w s Arrow
+  end grestore } def
+%%% <Carrow>
+%%% x y len rot lw scale color  <Marrow>  -
+  /Marrow { gsave cvx exec 6 dict begin
+    /s exch def
+    setlinewidth 0 setlinecap
+    /rot exch dup sin exch cos atan def
+    /d exch 2 div def translate
+    rot dup dup 180 sub dup rot quadrant rotate
+    rot d d neg dup d quadrant 0 translate
+    rot 90 rot sub rot 90 sub 270 rot sub rot 270 sub quadrant
+    /beta exch 0.5 mul def
+    /r d beta sin div def
+    0 r beta cos mul neg r 90 beta sub 90 beta add arc stroke
+    rot d d neg dup d quadrant 0 translate
+    /betas beta 5.5 s mul r atan sub def
+    rot betas neg 180 betas add dup betas neg quadrant rotate
+    arrowhead
+  end grestore } def
+%%% <Marrow>
+%%% string x y font  <Show>  -
+  /Show { setfont moveto show } def
+%%% <Show>
+/black     { 0.0 0.0 0.0 setrgbcolor } bind def
+/white     { 1.0 1.0 1.0 setrgbcolor } bind def
+/red       { 1.0 0.0 0.0 setrgbcolor } bind def
+/orange    { 0.9 0.7 0.0 setrgbcolor } bind def
+/darkred   { 0.7 0.0 0.0 setrgbcolor } bind def
+/green     { 0.0 1.0 0.0 setrgbcolor } bind def
+/darkgreen { 0.0 0.7 0.0 setrgbcolor } bind def
+/blue      { 0.0 0.0 1.0 setrgbcolor } bind def
+/darkblue  { 0.0 0.0 0.7 setrgbcolor } bind def
+/lightblue { 0.0 1.0 1.0 setrgbcolor } bind def
+%%EndProlog
+
+%%BeginSetup
+%%% BeginFont Helvetica
+  /Helvetica findfont
+  dup length dict begin
+    { 1 index /FID ne { def } { pop pop } ifelse } forall
+    /Encoding ISOLatin1Encoding def
+    currentdict
+  end
+  /Helvetica-iso exch definefont pop
+  /F0 /Helvetica-iso findfont 12.000000 scalefont def
+  /F1 /Helvetica-iso findfont 8.485281 scalefont def
+%%% EndFont Helvetica
+%%EndSetup
+
+%%Page: 1
+gsave
+0.000000 0.000000 translate
+%%% BeginAxis
+gsave
+32.148000 0 translate
+0.000000 -28.346457 425.196850 90.000000 0.800000 0.560000 /black Arrow
+%%% BeginText (Energie~1000 cm^-1^)
+gsave black 6.000000 396.850394 translate 0.000000 rotate
+  (E) 5.389898 -8.748000 F0 Show
+  (n) 13.393898 -8.748000 F0 Show
+  (e) 20.065898 -8.748000 F0 Show
+  (r) 26.737898 -8.748000 F0 Show
+  (g) 30.733898 -8.748000 F0 Show
+  (i) 37.405898 -8.748000 F0 Show
+  (e) 40.069898 -8.748000 F0 Show
+-0.000000 -12.432000 52.695797 0.000000 0.800000 /black Line
+  (1) -1.224000 -24.348000 F0 Show
+  (0) 5.448000 -24.348000 F0 Show
+  (0) 12.120000 -24.348000 F0 Show
+  (0) 18.792000 -24.348000 F0 Show
+  ( ) 25.464000 -24.348000 F0 Show
+  (c) 28.800000 -24.348000 F0 Show
+  (m) 34.800000 -24.348000 F0 Show
+  (-) 44.796000 -19.548000 F1 Show
+  (1) 49.751404 -19.548000 F1 Show
+grestore
+%%% EndText (Energie~1000 cm^-1^)
+0.000000 0.000000 6.000000 180.000000 0.800000 /black Line
+%%% BeginText (0)
+gsave black -10.800000 -4.392000 translate 0.000000 rotate
+  (0) -6.084000 0.276000 F0 Show
+grestore
+%%% EndText (0)
+0.000000 90.708661 6.000000 180.000000 0.800000 /black Line
+%%% BeginText (5)
+gsave black -10.800000 86.316661 translate 0.000000 rotate
+  (5) -6.156000 0.276000 F0 Show
+grestore
+%%% EndText (5)
+0.000000 181.417323 6.000000 180.000000 0.800000 /black Line
+%%% BeginText (10)
+gsave black -10.800000 177.025323 translate 0.000000 rotate
+  (1) -12.756000 0.276000 F0 Show
+  (0) -6.084000 0.276000 F0 Show
+grestore
+%%% EndText (10)
+0.000000 272.125984 6.000000 180.000000 0.800000 /black Line
+%%% BeginText (15)
+gsave black -10.800000 267.733984 translate 0.000000 rotate
+  (1) -12.828000 0.276000 F0 Show
+  (5) -6.156000 0.276000 F0 Show
+grestore
+%%% EndText (15)
+0.000000 362.834646 6.000000 180.000000 0.800000 /black Line
+%%% BeginText (20)
+gsave black -10.800000 358.442646 translate 0.000000 rotate
+  (2) -12.756000 0.276000 F0 Show
+  (0) -6.084000 0.276000 F0 Show
+grestore
+%%% EndText (20)
+grestore
+%%% EndAxis
+41.148000 0.000000 translate
+%%% BeginDiagram Pr
+gsave
+6.000000 0 translate
+0.000000 0.000000 48.188976 0.000000 0.800000 /black Line
+0.000000 39.367559 48.188976 0.000000 0.800000 /black Line
+0.000000 77.283780 48.188976 0.000000 0.800000 /black Line
+0.000000 93.248504 48.188976 0.000000 0.800000 /black Line
+0.000000 117.739843 48.188976 0.000000 0.800000 /black Line
+0.000000 125.540787 48.188976 0.000000 0.800000 /black Line
+0.000000 178.696063 48.188976 0.000000 0.800000 /black Line
+0.000000 308.590866 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^3^H_4_)
+gsave black 52.988976 0.000000 translate 0.000000 rotate
+  (3) -0.271529 0.891968 F1 Show
+  (H) 4.446287 -3.908032 F0 Show
+  (4) 13.110287 -6.908032 F1 Show
+grestore
+%%% EndText (^3^H_4_)
+%%% BeginText (^3^H_5_)
+gsave black 52.988976 39.367559 translate 0.000000 rotate
+  (3) -0.271529 0.989548 F1 Show
+  (H) 4.446287 -3.810452 F0 Show
+  (5) 13.110287 -6.810452 F1 Show
+grestore
+%%% EndText (^3^H_5_)
+%%% BeginText (^3^H_6_)
+gsave black 52.988976 77.283780 translate 0.000000 rotate
+  (3) -0.271529 0.989548 F1 Show
+  (H) 4.446287 -3.810452 F0 Show
+  (6) 13.110287 -6.810452 F1 Show
+grestore
+%%% EndText (^3^H_6_)
+%%% BeginText (^3^F_2_)
+gsave black 52.988976 93.248504 translate 0.000000 rotate
+  (3) -0.271529 0.891968 F1 Show
+  (F) 4.446287 -3.908032 F0 Show
+  (2) 11.778287 -6.908032 F1 Show
+grestore
+%%% EndText (^3^F_2_)
+%%% BeginText (^3^F_4_|^3^F_3_)
+gsave black 52.988976 121.640315 translate 0.000000 rotate
+  (3) -0.271529 7.589548 F1 Show
+  (F) 4.446287 2.789548 F0 Show
+  (4) 11.778287 -0.210452 F1 Show
+  (3) -0.271529 -5.610452 F1 Show
+  (F) 4.446287 -10.410452 F0 Show
+  (3) 11.778287 -13.410452 F1 Show
+grestore
+%%% EndText (^3^F_4_|^3^F_3_)
+%%% BeginText (^1^G_4_)
+gsave black 52.988976 178.696063 translate 0.000000 rotate
+  (1) -0.865499 0.891968 F1 Show
+  (G) 3.852318 -3.908032 F0 Show
+  (4) 13.188318 -6.908032 F1 Show
+grestore
+%%% EndText (^1^G_4_)
+%%% BeginText (^1^D_2_)
+gsave black 52.988976 308.590866 translate 0.000000 rotate
+  (1) -0.865499 0.891968 F1 Show
+  (D) 3.852318 -3.908032 F0 Show
+  (2) 12.516318 -6.908032 F1 Show
+grestore
+%%% EndText (^1^D_2_)
+%%% BeginText (Pr^3+^ (4f^2^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (P) -23.947519 2.544000 F0 Show
+  (r) -15.943519 2.544000 F0 Show
+  (3) -11.947519 7.344000 F1 Show
+  (+) -7.229702 7.344000 F1 Show
+  ( ) -2.274298 2.544000 F0 Show
+  (\() 1.061702 2.544000 F0 Show
+  (4) 5.057702 2.544000 F0 Show
+  (f) 11.729702 2.544000 F0 Show
+  (2) 15.065702 7.344000 F1 Show
+  (\)) 19.783519 2.544000 F0 Show
+grestore
+%%% EndText (Pr^3+^ (4f^2^))
+grestore
+%%% EndDiagram Pr
+82.589640 0.000000 translate
+%%% BeginDiagram Nd
+gsave
+14.847479 0 translate
+0.000000 0.000000 48.188976 0.000000 0.800000 /black Line
+0.000000 35.920630 48.188976 0.000000 0.800000 /black Line
+0.000000 71.659843 48.188976 0.000000 0.800000 /black Line
+0.000000 106.491969 48.188976 0.000000 0.800000 /black Line
+0.000000 209.718425 48.188976 0.000000 0.800000 /black Line
+0.000000 228.186709 48.188976 0.000000 0.800000 /black Line
+0.000000 228.186709 48.188976 0.000000 0.800000 /black Line
+0.000000 245.094803 48.188976 0.000000 0.800000 /black Line
+0.000000 245.094803 48.188976 0.000000 0.800000 /black Line
+0.000000 267.590551 48.188976 0.000000 0.800000 /black Line
+0.000000 290.811969 48.188976 0.000000 0.800000 /black Line
+0.000000 314.940472 48.188976 0.000000 0.800000 /black Line
+0.000000 314.940472 48.188976 0.000000 0.800000 /black Line
+0.000000 346.869921 48.188976 0.000000 0.800000 /black Line
+0.000000 355.759370 48.188976 0.000000 0.800000 /black Line
+0.000000 355.759370 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^4^I_9/2_)
+gsave black 52.988976 0.000000 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (I) 4.480229 -3.810452 F0 Show
+  (9) 7.816229 -6.810452 F1 Show
+  (/) 12.534045 -6.810452 F1 Show
+  (2) 14.892953 -6.810452 F1 Show
+grestore
+%%% EndText (^4^I_9/2_)
+%%% BeginText (^4^I_11/2_)
+gsave black 52.988976 35.920630 translate 0.000000 rotate
+  (4) -0.237588 0.976821 F1 Show
+  (I) 4.480229 -3.823179 F0 Show
+  (1) 7.816229 -6.823179 F1 Show
+  (1) 12.534045 -6.823179 F1 Show
+  (/) 17.251861 -6.823179 F1 Show
+  (2) 19.610770 -6.823179 F1 Show
+grestore
+%%% EndText (^4^I_11/2_)
+%%% BeginText (^4^I_13/2_)
+gsave black 52.988976 71.659843 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (I) 4.480229 -3.810452 F0 Show
+  (1) 7.816229 -6.810452 F1 Show
+  (3) 12.534045 -6.810452 F1 Show
+  (/) 17.251861 -6.810452 F1 Show
+  (2) 19.610770 -6.810452 F1 Show
+grestore
+%%% EndText (^4^I_13/2_)
+%%% BeginText (^4^I_15/2_)
+gsave black 52.988976 106.491969 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (I) 4.480229 -3.810452 F0 Show
+  (1) 7.816229 -6.810452 F1 Show
+  (5) 12.534045 -6.810452 F1 Show
+  (/) 17.251861 -6.810452 F1 Show
+  (2) 19.610770 -6.810452 F1 Show
+grestore
+%%% EndText (^4^I_15/2_)
+%%% BeginText (^4^F_9/2_|^4^S_3/2_|^4^F_7/2_|^2^H_9/2_|^4^F_5/2_|^4^F_3/2_)
+gsave black 52.988976 238.654488 translate 0.000000 rotate
+  (4) -0.237588 33.989548 F1 Show
+  (F) 4.480229 29.189548 F0 Show
+  (9) 11.812229 26.189548 F1 Show
+  (/) 16.530045 26.189548 F1 Show
+  (2) 18.888953 26.189548 F1 Show
+  (4) -0.237588 20.789548 F1 Show
+  (S) 4.480229 15.989548 F0 Show
+  (3) 12.484229 12.989548 F1 Show
+  (/) 17.202045 12.989548 F1 Show
+  (2) 19.560953 12.989548 F1 Show
+  (4) -0.237588 7.589548 F1 Show
+  (F) 4.480229 2.789548 F0 Show
+  (7) 11.812229 -0.210452 F1 Show
+  (/) 16.530045 -0.210452 F1 Show
+  (2) 18.888953 -0.210452 F1 Show
+  (2) -0.288500 -5.610452 F1 Show
+  (H) 4.429317 -10.410452 F0 Show
+  (9) 13.093317 -13.410452 F1 Show
+  (/) 17.811133 -13.410452 F1 Show
+  (2) 20.170042 -13.410452 F1 Show
+  (4) -0.237588 -18.810452 F1 Show
+  (F) 4.480229 -23.610452 F0 Show
+  (5) 11.812229 -26.610452 F1 Show
+  (/) 16.530045 -26.610452 F1 Show
+  (2) 18.888953 -26.610452 F1 Show
+  (4) -0.237588 -32.010452 F1 Show
+  (F) 4.480229 -36.810452 F0 Show
+  (3) 11.812229 -39.810452 F1 Show
+  (/) 16.530045 -39.810452 F1 Show
+  (2) 18.888953 -39.810452 F1 Show
+grestore
+%%% EndText (^4^F_9/2_|^4^S_3/2_|^4^F_7/2_|^2^H_9/2_|^4^F_5/2_|^4^F_3/2_)
+%%% BeginText (^2^H_11/2_)
+gsave black 52.988976 290.811969 translate 0.000000 rotate
+  (2) -0.288500 0.976821 F1 Show
+  (H) 4.429317 -3.823179 F0 Show
+  (1) 13.093317 -6.823179 F1 Show
+  (1) 17.811133 -6.823179 F1 Show
+  (/) 22.528950 -6.823179 F1 Show
+  (2) 24.887858 -6.823179 F1 Show
+grestore
+%%% EndText (^2^H_11/2_)
+%%% BeginText (^2^G_7/2_|^4^G_5/2_)
+gsave black 52.988976 314.940472 translate 0.000000 rotate
+  (2) -0.288500 7.589548 F1 Show
+  (G) 4.429317 2.789548 F0 Show
+  (7) 13.765317 -0.210452 F1 Show
+  (/) 18.483133 -0.210452 F1 Show
+  (2) 20.842042 -0.210452 F1 Show
+  (4) -0.237588 -5.610452 F1 Show
+  (G) 4.480229 -10.410452 F0 Show
+  (5) 13.816229 -13.410452 F1 Show
+  (/) 18.534045 -13.410452 F1 Show
+  (2) 20.892953 -13.410452 F1 Show
+grestore
+%%% EndText (^2^G_7/2_|^4^G_5/2_)
+%%% BeginText (^2^K_13/2_|^4^G_9/2_|^4^G_7/2_)
+gsave black 52.988976 351.314646 translate 0.000000 rotate
+  (2) -0.288500 14.176821 F1 Show
+  (K) 4.429317 9.376821 F0 Show
+  (1) 12.433317 6.376821 F1 Show
+  (3) 17.151133 6.376821 F1 Show
+  (/) 21.868950 6.376821 F1 Show
+  (2) 24.227858 6.376821 F1 Show
+  (4) -0.237588 0.976821 F1 Show
+  (G) 4.480229 -3.823179 F0 Show
+  (9) 13.816229 -6.823179 F1 Show
+  (/) 18.534045 -6.823179 F1 Show
+  (2) 20.892953 -6.823179 F1 Show
+  (4) -0.237588 -12.223179 F1 Show
+  (G) 4.480229 -17.023179 F0 Show
+  (7) 13.816229 -20.023179 F1 Show
+  (/) 18.534045 -20.023179 F1 Show
+  (2) 20.892953 -20.023179 F1 Show
+grestore
+%%% EndText (^2^K_13/2_|^4^G_9/2_|^4^G_7/2_)
+%%% BeginText (^2^)
+gsave black -4.800000 228.186709 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (^2^)
+gsave black -4.800000 245.094803 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (^2^)
+gsave black -4.800000 314.940472 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (^2^)
+gsave black -4.800000 355.759370 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (Nd^3+^ (4f^3^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (N) -25.525519 2.544000 F0 Show
+  (d) -16.861519 2.544000 F0 Show
+  (3) -10.189519 7.344000 F1 Show
+  (+) -5.471702 7.344000 F1 Show
+  ( ) -0.516298 2.544000 F0 Show
+  (\() 2.819702 2.544000 F0 Show
+  (4) 6.815702 2.544000 F0 Show
+  (f) 13.487702 2.544000 F0 Show
+  (3) 16.823702 7.344000 F1 Show
+  (\)) 21.541519 2.544000 F0 Show
+grestore
+%%% EndText (Nd^3+^ (4f^3^))
+grestore
+%%% EndDiagram Nd
+103.060292 0.000000 translate
+%%% BeginDiagram Tb
+gsave
+6.183030 0 translate
+0.000000 6.694299 48.188976 0.000000 0.800000 /black Line
+0.000000 45.517606 48.188976 0.000000 0.800000 /black Line
+0.000000 66.453165 48.188976 0.000000 0.800000 /black Line
+0.000000 86.735622 48.188976 0.000000 0.800000 /black Line
+0.000000 102.627780 48.188976 0.000000 0.800000 /black Line
+0.000000 109.485354 48.188976 0.000000 0.800000 /black Line
+0.000000 113.022992 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^7^F_6_)
+gsave black 52.988976 6.694299 translate 0.000000 rotate
+  (7) -0.390323 0.989548 F1 Show
+  (F) 4.327494 -3.810452 F0 Show
+  (6) 11.659494 -6.810452 F1 Show
+grestore
+%%% EndText (^7^F_6_)
+%%% BeginText (^7^F_5_)
+gsave black 52.988976 45.517606 translate 0.000000 rotate
+  (7) -0.390323 0.989548 F1 Show
+  (F) 4.327494 -3.810452 F0 Show
+  (5) 11.659494 -6.810452 F1 Show
+grestore
+%%% EndText (^7^F_5_)
+%%% BeginText (^7^F_0_|^7^F_1_|^7^F_2_|^7^F_3_|^7^F_4_)
+gsave black 52.988976 89.729008 translate 0.000000 rotate
+  (7) -0.390323 27.291968 F1 Show
+  (F) 4.327494 22.491968 F0 Show
+  (0) 11.659494 19.491968 F1 Show
+  (7) -0.390323 14.091968 F1 Show
+  (F) 4.327494 9.291968 F0 Show
+  (1) 11.659494 6.291968 F1 Show
+  (7) -0.390323 0.891968 F1 Show
+  (F) 4.327494 -3.908032 F0 Show
+  (2) 11.659494 -6.908032 F1 Show
+  (7) -0.390323 -12.308032 F1 Show
+  (F) 4.327494 -17.108032 F0 Show
+  (3) 11.659494 -20.108032 F1 Show
+  (7) -0.390323 -25.508032 F1 Show
+  (F) 4.327494 -30.308032 F0 Show
+  (4) 11.659494 -33.308032 F1 Show
+grestore
+%%% EndText (^7^F_0_|^7^F_1_|^7^F_2_|^7^F_3_|^7^F_4_)
+%%% BeginText (Tb^3+^ (4f^8^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (T) -24.529519 2.544000 F0 Show
+  (b) -17.197519 2.544000 F0 Show
+  (3) -10.525519 7.344000 F1 Show
+  (+) -5.807702 7.344000 F1 Show
+  ( ) -0.852298 2.544000 F0 Show
+  (\() 2.483702 2.544000 F0 Show
+  (4) 6.479702 2.544000 F0 Show
+  (f) 13.151702 2.544000 F0 Show
+  (8) 16.487702 7.344000 F1 Show
+  (\)) 21.205519 2.544000 F0 Show
+grestore
+%%% EndText (Tb^3+^ (4f^8^))
+grestore
+%%% EndDiagram Tb
+81.243847 0.000000 translate
+%%% BeginDiagram Dy
+gsave
+14.847479 0 translate
+0.000000 0.000000 48.188976 0.000000 0.800000 /black Line
+0.000000 64.040315 48.188976 0.000000 0.800000 /black Line
+0.000000 107.036220 48.188976 0.000000 0.800000 /black Line
+0.000000 141.686929 48.188976 0.000000 0.800000 /black Line
+0.000000 141.686929 48.188976 0.000000 0.800000 /black Line
+0.000000 165.634016 48.188976 0.000000 0.800000 /black Line
+0.000000 165.634016 48.188976 0.000000 0.800000 /black Line
+0.000000 187.041260 48.188976 0.000000 0.800000 /black Line
+0.000000 200.466142 48.188976 0.000000 0.800000 /black Line
+0.000000 226.227402 48.188976 0.000000 0.800000 /black Line
+0.000000 240.559370 48.188976 0.000000 0.800000 /black Line
+0.000000 250.609890 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^6^H_15/2_)
+gsave black 52.988976 0.000000 translate 0.000000 rotate
+  (6) -0.364867 0.989548 F1 Show
+  (H) 4.352949 -3.810452 F0 Show
+  (1) 13.016949 -6.810452 F1 Show
+  (5) 17.734766 -6.810452 F1 Show
+  (/) 22.452582 -6.810452 F1 Show
+  (2) 24.811490 -6.810452 F1 Show
+grestore
+%%% EndText (^6^H_15/2_)
+%%% BeginText (^6^H_13/2_)
+gsave black 52.988976 64.040315 translate 0.000000 rotate
+  (6) -0.364867 0.989548 F1 Show
+  (H) 4.352949 -3.810452 F0 Show
+  (1) 13.016949 -6.810452 F1 Show
+  (3) 17.734766 -6.810452 F1 Show
+  (/) 22.452582 -6.810452 F1 Show
+  (2) 24.811490 -6.810452 F1 Show
+grestore
+%%% EndText (^6^H_13/2_)
+%%% BeginText (^6^H_11/2_)
+gsave black 52.988976 107.036220 translate 0.000000 rotate
+  (6) -0.364867 0.976821 F1 Show
+  (H) 4.352949 -3.823179 F0 Show
+  (1) 13.016949 -6.823179 F1 Show
+  (1) 17.734766 -6.823179 F1 Show
+  (/) 22.452582 -6.823179 F1 Show
+  (2) 24.811490 -6.823179 F1 Show
+grestore
+%%% EndText (^6^H_11/2_)
+%%% BeginText (^6^F_7/2_|^6^H_5/2_|^6^H_7/2_|^6^F_9/2_|^6^F_11/2_|^6^H_9/2_)
+gsave black 52.988976 171.076535 translate 0.000000 rotate
+  (6) -0.364867 33.989548 F1 Show
+  (F) 4.352949 29.189548 F0 Show
+  (7) 11.684949 26.189548 F1 Show
+  (/) 16.402766 26.189548 F1 Show
+  (2) 18.761674 26.189548 F1 Show
+  (6) -0.364867 20.789548 F1 Show
+  (H) 4.352949 15.989548 F0 Show
+  (5) 13.016949 12.989548 F1 Show
+  (/) 17.734766 12.989548 F1 Show
+  (2) 20.093674 12.989548 F1 Show
+  (6) -0.364867 7.589548 F1 Show
+  (H) 4.352949 2.789548 F0 Show
+  (7) 13.016949 -0.210452 F1 Show
+  (/) 17.734766 -0.210452 F1 Show
+  (2) 20.093674 -0.210452 F1 Show
+  (6) -0.364867 -5.610452 F1 Show
+  (F) 4.352949 -10.410452 F0 Show
+  (9) 11.684949 -13.410452 F1 Show
+  (/) 16.402766 -13.410452 F1 Show
+  (2) 18.761674 -13.410452 F1 Show
+  (6) -0.364867 -18.810452 F1 Show
+  (F) 4.352949 -23.610452 F0 Show
+  (1) 11.684949 -26.610452 F1 Show
+  (1) 16.402766 -26.610452 F1 Show
+  (/) 21.120582 -26.610452 F1 Show
+  (2) 23.479490 -26.610452 F1 Show
+  (6) -0.364867 -32.010452 F1 Show
+  (H) 4.352949 -36.810452 F0 Show
+  (9) 13.016949 -39.810452 F1 Show
+  (/) 17.734766 -39.810452 F1 Show
+  (2) 20.093674 -39.810452 F1 Show
+grestore
+%%% EndText (^6^F_7/2_|^6^H_5/2_|^6^H_7/2_|^6^F_9/2_|^6^F_11/2_|^6^H_9/2_)
+%%% BeginText (^6^F_1/2_|^6^F_3/2_|^6^F_5/2_)
+gsave black 52.988976 238.418646 translate 0.000000 rotate
+  (6) -0.364867 14.189548 F1 Show
+  (F) 4.352949 9.389548 F0 Show
+  (1) 11.684949 6.389548 F1 Show
+  (/) 16.402766 6.389548 F1 Show
+  (2) 18.761674 6.389548 F1 Show
+  (6) -0.364867 0.989548 F1 Show
+  (F) 4.352949 -3.810452 F0 Show
+  (3) 11.684949 -6.810452 F1 Show
+  (/) 16.402766 -6.810452 F1 Show
+  (2) 18.761674 -6.810452 F1 Show
+  (6) -0.364867 -12.210452 F1 Show
+  (F) 4.352949 -17.010452 F0 Show
+  (5) 11.684949 -20.010452 F1 Show
+  (/) 16.402766 -20.010452 F1 Show
+  (2) 18.761674 -20.010452 F1 Show
+grestore
+%%% EndText (^6^F_1/2_|^6^F_3/2_|^6^F_5/2_)
+%%% BeginText (^2^)
+gsave black -4.800000 141.686929 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (^2^)
+gsave black -4.800000 165.634016 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (Dy^3+^ (4f^9^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (D) -25.267519 2.616000 F0 Show
+  (y) -16.603519 2.616000 F0 Show
+  (3) -10.603519 7.416000 F1 Show
+  (+) -5.885702 7.416000 F1 Show
+  ( ) -0.930298 2.616000 F0 Show
+  (\() 2.405702 2.616000 F0 Show
+  (4) 6.401702 2.616000 F0 Show
+  (f) 13.073702 2.616000 F0 Show
+  (9) 16.409702 7.416000 F1 Show
+  (\)) 21.127519 2.616000 F0 Show
+grestore
+%%% EndText (Dy^3+^ (4f^9^))
+grestore
+%%% EndDiagram Dy
+102.983925 0.000000 translate
+%%% BeginDiagram Ho
+gsave
+14.847479 0 translate
+0.000000 0.000000 48.188976 0.000000 0.800000 /black Line
+0.000000 93.248504 48.188976 0.000000 0.800000 /black Line
+0.000000 157.833071 48.188976 0.000000 0.800000 /black Line
+0.000000 203.913071 48.188976 0.000000 0.800000 /black Line
+0.000000 240.559370 48.188976 0.000000 0.800000 /black Line
+0.000000 283.011024 48.188976 0.000000 0.800000 /black Line
+0.000000 338.524724 48.188976 0.000000 0.800000 /black Line
+0.000000 338.524724 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^5^I_8_)
+gsave black 52.988976 0.000000 translate 0.000000 rotate
+  (5) -0.296985 0.989548 F1 Show
+  (I) 4.420832 -3.810452 F0 Show
+  (8) 7.756832 -6.810452 F1 Show
+grestore
+%%% EndText (^5^I_8_)
+%%% BeginText (^5^I_7_)
+gsave black 52.988976 93.248504 translate 0.000000 rotate
+  (5) -0.296985 0.891968 F1 Show
+  (I) 4.420832 -3.908032 F0 Show
+  (7) 7.756832 -6.908032 F1 Show
+grestore
+%%% EndText (^5^I_7_)
+%%% BeginText (^5^I_6_)
+gsave black 52.988976 157.833071 translate 0.000000 rotate
+  (5) -0.296985 0.989548 F1 Show
+  (I) 4.420832 -3.810452 F0 Show
+  (6) 7.756832 -6.810452 F1 Show
+grestore
+%%% EndText (^5^I_6_)
+%%% BeginText (^5^I_5_)
+gsave black 52.988976 203.913071 translate 0.000000 rotate
+  (5) -0.296985 0.989548 F1 Show
+  (I) 4.420832 -3.810452 F0 Show
+  (5) 7.756832 -6.810452 F1 Show
+grestore
+%%% EndText (^5^I_5_)
+%%% BeginText (^5^I_4_)
+gsave black 52.988976 240.559370 translate 0.000000 rotate
+  (5) -0.296985 0.891968 F1 Show
+  (I) 4.420832 -3.908032 F0 Show
+  (4) 7.756832 -6.908032 F1 Show
+grestore
+%%% EndText (^5^I_4_)
+%%% BeginText (^5^F_5_)
+gsave black 52.988976 283.011024 translate 0.000000 rotate
+  (5) -0.296985 0.989548 F1 Show
+  (F) 4.420832 -3.810452 F0 Show
+  (5) 11.752832 -6.810452 F1 Show
+grestore
+%%% EndText (^5^F_5_)
+%%% BeginText (^5^F_4_|^5^S_2_)
+gsave black 52.988976 338.524724 translate 0.000000 rotate
+  (5) -0.296985 7.491968 F1 Show
+  (F) 4.420832 2.691968 F0 Show
+  (4) 11.752832 -0.308032 F1 Show
+  (5) -0.296985 -5.708032 F1 Show
+  (S) 4.420832 -10.508032 F0 Show
+  (2) 12.424832 -13.508032 F1 Show
+grestore
+%%% EndText (^5^F_4_|^5^S_2_)
+%%% BeginText (^2^)
+gsave black -4.800000 338.524724 translate 0.000000 rotate
+  (2) -4.335979 -3.008032 F1 Show
+grestore
+%%% EndText (^2^)
+%%% BeginText (Ho^3+^ (4f^10^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (H) -27.926427 2.544000 F0 Show
+  (o) -19.262427 2.544000 F0 Show
+  (3) -12.590427 7.344000 F1 Show
+  (+) -7.872610 7.344000 F1 Show
+  ( ) -2.917206 2.544000 F0 Show
+  (\() 0.418794 2.544000 F0 Show
+  (4) 4.414794 2.544000 F0 Show
+  (f) 11.086794 2.544000 F0 Show
+  (1) 14.422794 7.344000 F1 Show
+  (0) 19.140610 7.344000 F1 Show
+  (\)) 23.858427 2.544000 F0 Show
+grestore
+%%% EndText (Ho^3+^ (4f^10^))
+grestore
+%%% EndDiagram Ho
+90.597266 0.000000 translate
+%%% BeginDiagram Er
+gsave
+7.125939 0 translate
+0.000000 0.000000 48.188976 0.000000 0.800000 /black Line
+0.000000 118.646929 48.188976 0.000000 0.800000 /black Line
+0.000000 187.041260 48.188976 0.000000 0.800000 /black Line
+0.000000 226.771654 48.188976 0.000000 0.800000 /black Line
+0.000000 279.019843 48.188976 0.000000 0.800000 /black Line
+0.000000 335.984882 48.188976 0.000000 0.800000 /black Line
+0.000000 348.865512 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^4^I_15/2_)
+gsave black 52.988976 0.000000 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (I) 4.480229 -3.810452 F0 Show
+  (1) 7.816229 -6.810452 F1 Show
+  (5) 12.534045 -6.810452 F1 Show
+  (/) 17.251861 -6.810452 F1 Show
+  (2) 19.610770 -6.810452 F1 Show
+grestore
+%%% EndText (^4^I_15/2_)
+%%% BeginText (^4^I_13/2_)
+gsave black 52.988976 118.646929 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (I) 4.480229 -3.810452 F0 Show
+  (1) 7.816229 -6.810452 F1 Show
+  (3) 12.534045 -6.810452 F1 Show
+  (/) 17.251861 -6.810452 F1 Show
+  (2) 19.610770 -6.810452 F1 Show
+grestore
+%%% EndText (^4^I_13/2_)
+%%% BeginText (^4^I_11/2_)
+gsave black 52.988976 187.041260 translate 0.000000 rotate
+  (4) -0.237588 0.976821 F1 Show
+  (I) 4.480229 -3.823179 F0 Show
+  (1) 7.816229 -6.823179 F1 Show
+  (1) 12.534045 -6.823179 F1 Show
+  (/) 17.251861 -6.823179 F1 Show
+  (2) 19.610770 -6.823179 F1 Show
+grestore
+%%% EndText (^4^I_11/2_)
+%%% BeginText (^4^I_9/2_)
+gsave black 52.988976 226.771654 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (I) 4.480229 -3.810452 F0 Show
+  (9) 7.816229 -6.810452 F1 Show
+  (/) 12.534045 -6.810452 F1 Show
+  (2) 14.892953 -6.810452 F1 Show
+grestore
+%%% EndText (^4^I_9/2_)
+%%% BeginText (^4^F_9/2_)
+gsave black 52.988976 279.019843 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (F) 4.480229 -3.810452 F0 Show
+  (9) 11.812229 -6.810452 F1 Show
+  (/) 16.530045 -6.810452 F1 Show
+  (2) 18.888953 -6.810452 F1 Show
+grestore
+%%% EndText (^4^F_9/2_)
+%%% BeginText (^4^S_3/2_)
+gsave black 52.988976 335.984882 translate 0.000000 rotate
+  (4) -0.237588 0.989548 F1 Show
+  (S) 4.480229 -3.810452 F0 Show
+  (3) 12.484229 -6.810452 F1 Show
+  (/) 17.202045 -6.810452 F1 Show
+  (2) 19.560953 -6.810452 F1 Show
+grestore
+%%% EndText (^4^S_3/2_)
+%%% BeginText (^2^H_11/2_)
+gsave black 52.988976 348.865512 translate 0.000000 rotate
+  (2) -0.288500 0.976821 F1 Show
+  (H) 4.429317 -3.823179 F0 Show
+  (1) 13.093317 -6.823179 F1 Show
+  (1) 17.811133 -6.823179 F1 Show
+  (/) 22.528950 -6.823179 F1 Show
+  (2) 24.887858 -6.823179 F1 Show
+grestore
+%%% EndText (^2^H_11/2_)
+%%% BeginText (Er^3+^ (4f^11^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (E) -26.300427 2.544000 F0 Show
+  (r) -18.296427 2.544000 F0 Show
+  (3) -14.300427 7.344000 F1 Show
+  (+) -9.582610 7.344000 F1 Show
+  ( ) -4.627206 2.544000 F0 Show
+  (\() -1.291206 2.544000 F0 Show
+  (4) 2.704794 2.544000 F0 Show
+  (f) 9.376794 2.544000 F0 Show
+  (1) 12.712794 7.344000 F1 Show
+  (1) 17.430610 7.344000 F1 Show
+  (\)) 22.148427 2.544000 F0 Show
+grestore
+%%% EndText (Er^3+^ (4f^11^))
+grestore
+%%% EndDiagram Er
+95.338752 0.000000 translate
+%%% BeginDiagram Tm
+gsave
+10.203939 0 translate
+0.000000 0.000000 48.188976 0.000000 0.800000 /black Line
+0.000000 106.292409 48.188976 0.000000 0.800000 /black Line
+0.000000 150.594520 48.188976 0.000000 0.800000 /black Line
+0.000000 230.218583 48.188976 0.000000 0.800000 /black Line
+0.000000 264.397606 48.188976 0.000000 0.800000 /black Line
+0.000000 275.046803 48.188976 0.000000 0.800000 /black Line
+%%% BeginText (^3^H_6_)
+gsave black 52.988976 0.000000 translate 0.000000 rotate
+  (3) -0.271529 0.989548 F1 Show
+  (H) 4.446287 -3.810452 F0 Show
+  (6) 13.110287 -6.810452 F1 Show
+grestore
+%%% EndText (^3^H_6_)
+%%% BeginText (^3^F_4_)
+gsave black 52.988976 106.292409 translate 0.000000 rotate
+  (3) -0.271529 0.891968 F1 Show
+  (F) 4.446287 -3.908032 F0 Show
+  (4) 11.778287 -6.908032 F1 Show
+grestore
+%%% EndText (^3^F_4_)
+%%% BeginText (^3^H_5_)
+gsave black 52.988976 150.594520 translate 0.000000 rotate
+  (3) -0.271529 0.989548 F1 Show
+  (H) 4.446287 -3.810452 F0 Show
+  (5) 13.110287 -6.810452 F1 Show
+grestore
+%%% EndText (^3^H_5_)
+%%% BeginText (^3^H_4_)
+gsave black 52.988976 230.218583 translate 0.000000 rotate
+  (3) -0.271529 0.891968 F1 Show
+  (H) 4.446287 -3.908032 F0 Show
+  (4) 13.110287 -6.908032 F1 Show
+grestore
+%%% EndText (^3^H_4_)
+%%% BeginText (^3^F_2_|^3^F_3_)
+gsave black 52.988976 269.713134 translate 0.000000 rotate
+  (3) -0.271529 7.589548 F1 Show
+  (F) 4.446287 2.789548 F0 Show
+  (2) 11.778287 -0.210452 F1 Show
+  (3) -0.271529 -5.610452 F1 Show
+  (F) 4.446287 -10.410452 F0 Show
+  (3) 11.778287 -13.410452 F1 Show
+grestore
+%%% EndText (^3^F_2_|^3^F_3_)
+%%% BeginText (Tm^3+^ (4f^12^))
+gsave black 24.094488 -28.346457 translate 0.000000 rotate
+  (T) -28.550427 2.544000 F0 Show
+  (m) -21.218427 2.544000 F0 Show
+  (3) -11.222427 7.344000 F1 Show
+  (+) -6.504610 7.344000 F1 Show
+  ( ) -1.549206 2.544000 F0 Show
+  (\() 1.786794 2.544000 F0 Show
+  (4) 5.782794 2.544000 F0 Show
+  (f) 12.454794 2.544000 F0 Show
+  (1) 15.790794 7.344000 F1 Show
+  (2) 20.508610 7.344000 F1 Show
+  (\)) 25.226427 2.544000 F0 Show
+grestore
+%%% EndText (Tm^3+^ (4f^12^))
+grestore
+%%% EndDiagram Tm
+grestore
+%%EndPage: 1
+end
+
+showpage
+%%EOF
