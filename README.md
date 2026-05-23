@@ -31,8 +31,8 @@ If you really want to execute it, you can use a virtual machine running
 [SuSE Linux 9.3](https://en.opensuse.org/Archive:SUSE_Linux_9.3).
 Important: Place a symbolic link to the folder `matrix` in each of your working directories
 to avoid the repeated calculation of all required matrices.
-This is how I restarted this ancient version in 2025 to compare it with the results a reimplementation in the package
-[Lanthanide](https://github.com/reincas/Lanthanide).
+This is how I restarted this ancient version in 2025 to compare it with the results of a reimplementation in the
+package [Lanthanide](https://github.com/reincas/Lanthanide).
 
 ## Documentation
 
